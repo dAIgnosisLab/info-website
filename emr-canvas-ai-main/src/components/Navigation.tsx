@@ -21,26 +21,27 @@ const Navigation = () => {
   
 
   <a
-    href="#services"
-    className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
-  >
-    Services
-  </a>
+  href="/#services"
+  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
+>
+  Services
+</a>
 
-  <a
-    href="#about"
-    className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
-  >
-    About us
-  </a>
+<a
+  href="/#about"
+  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
+>
+  About us
+</a>
+<a href="/Team" className="ltext-foreground hover:text-green-600 transition-colors px-4 py-2" >Team</a>
+<a
+  href="/#contact"
+  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
+>
+  Contact us
+</a>
 
-  <a
-    href="#contact"
-    className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
-  >
-    Contact us
-  </a>
-
+    {/*
   <Button variant="default" className="rounded-full bg-green-600 text-white px-6 py-2"
   onClick={() => {
     const target = document.getElementById("notify");
@@ -48,6 +49,7 @@ const Navigation = () => {
   }}>
     Get Notified
   </Button>
+*/}
 </div>
 
             {/* Mobile Menu Button */}

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import HeartWave from "./HeartWave";
 import MedicalWave from "./MedicalWave";
 
 const HeroSection = () => {
@@ -16,18 +15,18 @@ const HeroSection = () => {
     <section className="min-h-screen relative overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 overflow-hidden">
-  {/* Base green background */}
-  <div className="absolute inset-0 bg-[#c8eec3]" />
+        {/* Base green background */}
+        <div className="absolute inset-0 bg-[#c8eec3]" />
 
-  {/* Diagonal overlay (like TotalAV) */}
-  <div className="absolute inset-y-0 right-0 w-[60%] bg-[#b9e6b1] rotate-2 origin-bottom-right" />
+        {/* Diagonal overlay (like TotalAV) */}
+        <div className="absolute inset-y-0 right-0 w-[60%] bg-[#b9e6b1] rotate-2 origin-bottom-right" />
 
-  {/* Decorative hearts + wave line (SVG repeated) */}
-  <div className="absolute bottom-0 left-0 w-full flex justify-between px-10 pb-6 opacity-60">
+        {/* Decorative hearts + wave line (SVG repeated) */}
+        <div className="absolute bottom-0 left-0 w-full flex justify-between px-10 pb-6 opacity-60">
 
-    
-  </div>
-</div>
+
+        </div>
+      </div>
 
 
 
@@ -134,13 +133,16 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="flex flex-wrap gap-4 pt-4"
             >
+              {/*
               <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
                 Start Free Trial
-              </button>
-              <button className="px-8 py-4 bg-background/80 backdrop-blur-sm text-foreground rounded-full font-semibold border-2 border-border hover:border-primary transition-all hover:scale-105">
+              </button>*/}
+              <button className="px-7 py-5 bg-background/80 backdrop-blur-sm text-foreground rounded-full font-semibold border-2 border-border hover:border-primary transition-all hover:scale-105 block mx-auto">
                 Watch Demo
               </button>
+
             </motion.div>
+
 
             {/* Stats */}
             <motion.div

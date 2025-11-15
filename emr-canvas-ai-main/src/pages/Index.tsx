@@ -5,6 +5,8 @@ import Footer from "@/components/Footer"
 import HowItWorks from "@/components/HowItWorks";
 import AboutUsSection from "@/components/Aboutus";
 import ContactSection from "@/components/Contactus";
+
+
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -13,6 +15,7 @@ const Index = () => {
       <FeaturesSection />
       <HowItWorks/>
       <AboutUsSection/>
+      
       <ContactSection/>
       <Footer/>
       
