@@ -1,78 +1,109 @@
-import { motion } from "framer-motion";
-import { Button } from "./ui/button";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: "/#services", label: "Services" },
+    { href: "/#products", label: "Our Products" },
+    { href: "/#about", label: "About us" },
+    { href: "/Team", label: "Team" },
+    { href: "/#contact", label: "Contact us" },
+  ];
+
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+    <nav
+      className='fixed top-0 left-0 right-0 z-50 bg-white shadow-md'
+      role='navigation'
+      aria-label='Main'
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-background/80 backdrop-blur-lg rounded-full px-8 py-4 shadow-lg border border-border/50">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <img src="/logo.svg" alt="Logo" className="h-16 w-auto " />
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='h-20 sm:h-24 flex items-center justify-between'>
+          {/* Logo */}
+          <a
+            href='/'
+            className='flex items-center group'
+          >
+            <img
+              src='/logo.png'
+              alt='Logo'
+              className='h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-110'
+            />
+          </a>
 
-
-            {/* Navigation Links */}
-<div className="hidden md:flex items-center gap-10">
-  
-
-  <a
-  href="/#services"
-  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
->
-  Services
-</a>
-
-<a
-  href="/#about"
-  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
->
-  About us
-</a>
-<a href="/Team" className="ltext-foreground hover:text-green-600 transition-colors px-4 py-2" >Team</a>
-<a
-  href="/#contact"
-  className="text-foreground hover:text-green-600 transition-colors px-4 py-2"
->
-  Contact us
-</a>
-
-    {/*
-  <Button variant="default" className="rounded-full bg-green-600 text-white px-6 py-2"
-  onClick={() => {
-    const target = document.getElementById("notify");
-    target?.scrollIntoView({ behavior: "smooth" });
-  }}>
-    Get Notified
-  </Button>
-*/}
-</div>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden text-foreground">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
+          {/* Desktop Links */}
+          <div className='hidden md:flex items-center gap-6 lg:gap-8'>
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className='relative text-gray-700 text-base lg:text-lg font-semibold group px-2 py-1'
               >
+                <span className='transition-colors duration-300 group-hover:text-green-600'>
+                  {l.label}
+                </span>
+                <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-500 ease-out'></span>
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            type='button'
+            className='md:hidden p-2.5 text-gray-700 hover:bg-green-100 rounded-lg transition-colors duration-200'
+            aria-label='Toggle menu'
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <svg
+              className='w-8 h-8'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              {open ? (
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2.5}
+                  d='M6 18L18 6M6 6l12 12'
                 />
-              </svg>
-            </button>
+              ) : (
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2.5}
+                  d='M4 6h16M4 12h16M4 18h16'
+                />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            open ? "max-h-96 pb-4" : "max-h-0"
+          }`}
+        >
+          <div className='pt-2 pb-2 space-y-1 bg-white'>
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className='block px-4 py-4 text-base font-semibold text-gray-700 relative group rounded-lg hover:bg-green-50 transition-colors duration-200'
+              >
+                <span className='transition-colors duration-300 group-hover:text-green-600'>
+                  {l.label}
+                </span>
+                <span className='absolute bottom-2 left-4 w-0 h-0.5 bg-green-600 group-hover:w-[calc(100%-2rem)] transition-all duration-500 ease-out'></span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

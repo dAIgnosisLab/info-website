@@ -1,69 +1,64 @@
-import { motion } from "framer-motion";
+import { FaRocket, FaBrain, FaUsers } from "react-icons/fa";
 
 const aboutItems = [
   {
-    title: "Beyond Automation",
+    icon: <FaRocket />,
+    title: "Our Mission",
     description:
-      "We don't just automate documentation; we create AI-powered ecosystems where accuracy, speed, and reliability coexist.",
+      "To revolutionize healthcare documentation in Nepal and beyond by leveraging cutting-edge AI technology that empowers medical professionals to focus on patient care.",
   },
   {
-    title: "Reliable by Design",
+    icon: <FaBrain />,
+    title: "Our Vision",
     description:
-      "Our architecture adapts to noise, accent variations, and real clinical scenarios—ensuring consistent quality.",
+      "To become the leading AI-powered healthcare technology provider in South Asia, setting new standards for medical documentation accuracy and efficiency.",
   },
   {
-    title: "AI at the Core",
+    icon: <FaUsers />,
+    title: "Our Team",
     description:
-      "Intelligence is embedded in everything we build—from EMR generation to decision-support workflows.",
-  },
-  {
-    title: "Healthcare Focused",
-    description:
-      "Built with clinicians, designed for real medical settings, ensuring compliance and accuracy.",
-  },
-  {
-    title: "People Who Lead Change",
-    description:
-      "A team of innovators, ML engineers, and researchers shaping the future of healthcare documentation.",
-  },
-  {
-    title: "Proven Accuracy",
-    description:
-      "Our AI systems deliver high accuracy even in noisy, real-world patient-doctor conversations.",
+      "A passionate team of ML engineers, healthcare experts, and researchers from Nepal, united by the goal of advancing healthcare technology.",
   },
 ];
 
 export default function AboutUsSection() {
   return (
-    <section id="about" className="py-24 bg-background">
-      <div className="container mx-auto px-6 text-center">
+    <section id="about" className="py-20 md:py-24 bg-white">
+      <div className="container mx-auto px-6 lg:px-8">
         
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-          Why <span className="text-primary">dAIgnosisLab</span>?
-        </h2>
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+            About <span className="text-gray-900">D<span className="text-green-600">AI</span>GNOSISLAB</span>
+          </h2>
 
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-16">
-          We don't just automate documentation—we build healthcare ecosystems
-          where innovation and precision coexist.
-        </p>
+          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            We are a Nepal-based healthcare technology startup dedicated to transforming medical 
+            documentation through artificial intelligence. Our mission is to advance the healthcare 
+            system by providing innovative, AI-powered solutions that streamline workflows and 
+            enhance patient care quality.
+          </p>
+        </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {aboutItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-2xl p-8 text-left shadow-sm border border-border hover:shadow-lg hover:border-primary/50 transition-all"
+              className="bg-gray-50 rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 relative"
             >
-              <h3 className="text-xl font-semibold text-card-foreground mb-3">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 text-3xl md:text-4xl mb-6">
+                {item.icon}
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                 {item.title}
               </h3>
-              <p className="text-muted-foreground">{item.description}</p>
-            </motion.div>
+
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
           ))}
         </div>
 

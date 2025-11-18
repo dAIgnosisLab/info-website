@@ -1,71 +1,128 @@
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+
 export default function Footer() {
-    return (
-        <footer className="bg-gray-50 border-t border-gray-200 mt-20" id = "notify">
-            <div className="max-w-6xl mx-auto px-6 py-12">
+  return (
+    <footer
+      className='bg-white border-t border-gray-200 mt-20'
+      id='notify'
+    >
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12'>
+          {/* Brand */}
+          <div>
+            <img
+              src='/logo.png'
+              alt='Logo'
+              className='h-16 sm:h-20 md:h-24 w-auto mb-4'
+            />
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <p className='text-gray-600 text-base md:text-lg leading-relaxed mb-6'>
+              AI-driven healthcare documentation designed to save time, reduce
+              errors, and improve patient outcomes.
+            </p>
 
-                    {/* Brand */}
-                    <div>
-                        <img
-                            src="/logo.svg"
-                            alt="Logo"
-                            className="h-20 md:h-28 w-auto"
-                        />
-
-
-                        <p className="mt-3 text-gray-600 text-sm leading-relaxed max-w-xs">
-                            AI-driven healthcare documentation designed
-                            to save time, reduce errors, and improve patient outcomes.
-                        </p>
-                    </div>
-
-                    {/* Navigation */}
-                    <div>
-                        <h3 className="font-semibold text-gray-900 mb-3">Company</h3>
-                        <ul className="space-y-2 text-gray-600">
-                            <li><a href="#about" className="hover:text-re-500">About us</a></li>
-                            <li><a href="#services" className="hover:text-green-500">Services</a></li>
-                            <li><a href="#contact" className="hover:text-green-500">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Resources */}
-                    <div>
-                        <h3 className="font-semibold text-gray-900 mb-3">Resources</h3>
-                        <ul className="space-y-2 text-gray-600">
-                            <li><a className="hover:text-green-500" href="#">Documentation</a></li>
-                            <li><a className="hover:text-green-500" href="#">API Reference</a></li>
-                            <li><a className="hover:text-green-500" href="#">Support</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Newsletter */}
-                    <div>
-                        <h3 className="font-semibold text-gray-900 mb-3">Stay Updated</h3>
-                        <p className="text-gray-600 text-sm mb-3">
-                            Sign up to receive product updates and launch notifications.
-                        </p>
-
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="email"
-                                placeholder="Your email"
-                                className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
-                            />
-                            <button className="px-4 py-2 bg-green-400 hover:bg-green-500 text-white rounded-md transition">
-                                Join
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* Bottom */}
-                <div className="border-t mt-10 pt-6 text-center text-gray-500 text-sm">
-                    © {new Date().getFullYear()} dAIgnosisLabs. All rights reserved.
-                </div>
+            {/* Social Icons */}
+            <div className='flex gap-4'>
+              <a
+                href='#'
+                className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-all duration-300'
+              >
+                <FaFacebook className='text-2xl' />
+              </a>
+              <a
+                href='#'
+                className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-all duration-300'
+              >
+                <FaTwitter className='text-2xl' />
+              </a>
+              <a
+                href='#'
+                className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-all duration-300'
+              >
+                <FaLinkedin className='text-2xl' />
+              </a>
+              <a
+                href='#'
+                className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-all duration-300'
+              >
+                <FaInstagram className='text-2xl' />
+              </a>
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
+              Quick Links
+            </h3>
+            <ul className='space-y-3'>
+              <li>
+                <a
+                  href='#about'
+                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                >
+                  About us
+                </a>
+              </li>
+              <li>
+                <a
+                  href='#services'
+                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href='/Team'
+                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                >
+                  Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href='#contact'
+                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
+              Get in Touch
+            </h3>
+            <ul className='space-y-4'>
+              <li className='text-gray-600 text-base md:text-lg'>
+                <span className='font-semibold text-gray-900'>Email:</span>
+                <br />
+                daignosislab@gmail.com
+              </li>
+              <li className='text-gray-600 text-base md:text-lg'>
+                <span className='font-semibold text-gray-900'>Phone:</span>
+                <br />
+                +977-9703895325
+              </li>
+              <li className='text-gray-600 text-base md:text-lg'>
+                <span className='font-semibold text-gray-900'>Location:</span>
+                <br />
+                Kathmandu, Nepal
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className='border-t border-gray-200 mt-12 pt-8 text-center'>
+          <p className='text-gray-600 text-sm md:text-base'>
+            © {new Date().getFullYear()} dAIgnosisLab. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
