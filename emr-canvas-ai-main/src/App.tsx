@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
 import EmrGeneratorPage from "./pages/EmrGeneratorPage";
+import XrayTo3DPage from "./pages/xrayto3d";
 
 const queryClient = new QueryClient();
 
@@ -17,11 +18,26 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/Team" element={<TeamPage/>}/>
-          <Route path="/emr-generator" element={<EmrGeneratorPage/>}/>
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path='/'
+            element={<Index />}
+          />
+          <Route
+            path='/Team'
+            element={<TeamPage />}
+          />
+          <Route
+            path='/emr-generator'
+            element={<EmrGeneratorPage />}
+          />
+          <Route
+            path='/xray-to-3d'
+            element={<XrayTo3DPage />}
+          />
+          <Route
+            path='*'
+            element={<NotFound />}
+          />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

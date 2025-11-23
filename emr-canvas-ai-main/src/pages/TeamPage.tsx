@@ -21,18 +21,18 @@ const communityMembers = [
     organization: "",
     description:
       "Jeevan Neupane is a fourth-year Computer Engineering student at IOE, Pulchowk Campus who believes technology should solve real problems. He serves as the Engineering and Technical Lead at dAIgnosisLab, where he oversees the architecture of AI-powered healthcare solutions. He is also a Research Intern at NAAMII working on X-ray to 3D bone reconstruction and a Software Engineering Intern at IOE developing examination systems. With experience in full-stack development and machine learning, Jeevan focuses on building practical, impactful tools for healthcare.",
-    imageUrl: "/jeevan_neupane.png",
+    imageUrl: "/jeevan.jpg",
     github: "https://github.com/jeevan-neupane",
     linkedin: "https://www.linkedin.com/in/jeevan-neupane/",
   },
   {
-    name: "Apurva Koirala",
+    name: "Apurba Koirala",
     credentials: "",
     role: "AI/ML Research",
     organization: "",
     description:
       "Apurba Koirala is a Computer Science and Engineering student at VIT, Vellore, specializing in AI, machine learning, and data-driven systems. He has interned at Grande International Hospital, Labmentix EdTech, and WebTech, working on AI research, predictive modeling, and full-stack development. His work spans healthcare AI, federated learning, and cloud-based applications, with multiple research manuscripts and a published book chapter to his name.",
-    imageUrl: "/apoorva_koirala.png",
+    imageUrl: "/apurva.jpg",
     github: "https://github.com/apurbaaaa",
     linkedin: "https://www.linkedin.com/in/apurbak/",
   },
@@ -43,7 +43,7 @@ const communityMembers = [
     organization: "",
     description:
       "Bipin Bashyal is a Computer Engineering student at IOE, Pulchowk Campus, specializing in AI-powered healthcare technology. He develops and implements advanced AI and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures that healthcare AI can understand medical terminology and clinical context with high precision, enabling reliable and effective documentation workflows.",
-    imageUrl: "/bipin_bashyal.png",
+    imageUrl: "/bipin.jpg",
     github: "https://github.com/bipinbashyal",
     linkedin: "https://www.linkedin.com/in/bipin-bashyal-896239231/",
   },
@@ -54,7 +54,7 @@ const communityMembers = [
     organization: "",
     description:
       "Samyam Budhathoki is a Computer Science and Engineering student at VIT, Vellore, specializing in AI and machine learning for healthcare innovation. He focuses on building intelligent systems that enhance the accuracy and efficiency of medical documentation, developing models capable of handling complex clinical scenarios, multilingual data, and diverse healthcare environments. His work emphasizes secure, compliant, and scalable AI solutions designed to support real-world medical workflows.",
-    imageUrl: "/samyam_budathoki.png",
+    imageUrl: "/samyam.jpg",
     github: "https://github.com/Samyam30",
     linkedin: "https://www.linkedin.com/in/samyam-budhathoki-b55160322/",
   },

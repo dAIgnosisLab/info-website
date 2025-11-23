@@ -17,8 +17,8 @@ const Navigation = () => {
       role='navigation'
       aria-label='Main'
     >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='h-20 sm:h-24 flex items-center justify-between'>
+      <div className='max-w-8xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='h-20 sm:h-24 md:h-28 flex items-center justify-between'>
           {/* Logo */}
           <a
             href='/'
@@ -27,17 +27,17 @@ const Navigation = () => {
             <img
               src='/logo.png'
               alt='Logo'
-              className='h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-110'
+              className='h-32 w-48 sm:h-36 sm:w-52 md:h-40 md:w-60 object-contain transition-transform duration-300 group-hover:scale-105'
             />
           </a>
 
           {/* Desktop Links */}
-          <div className='hidden md:flex items-center gap-6 lg:gap-8'>
+          <div className='hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8'>
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className='relative text-gray-700 text-base lg:text-lg font-semibold group px-2 py-1'
+                className='relative text-black text-sm lg:text-base xl:text-lg font-bold group px-2 py-1'
               >
                 <span className='transition-colors duration-300 group-hover:text-green-600'>
                   {l.label}
@@ -50,13 +50,13 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             type='button'
-            className='md:hidden p-2.5 text-gray-700 hover:bg-green-100 rounded-lg transition-colors duration-200'
+            className='md:hidden p-3 text-black hover:bg-green-100 rounded-lg transition-colors duration-200'
             aria-label='Toggle menu'
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <svg
-              className='w-8 h-8'
+              className='w-8 h-8 sm:w-9 sm:h-9'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -92,7 +92,7 @@ const Navigation = () => {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className='block px-4 py-4 text-base font-semibold text-gray-700 relative group rounded-lg hover:bg-green-50 transition-colors duration-200'
+                className='block px-4 py-4 text-base sm:text-lg font-bold text-black relative group rounded-lg hover:bg-green-50 transition-colors duration-200'
               >
                 <span className='transition-colors duration-300 group-hover:text-green-600'>
                   {l.label}

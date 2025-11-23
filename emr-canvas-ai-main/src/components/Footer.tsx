@@ -12,13 +12,12 @@ export default function Footer() {
           <div>
             <img
               src='/logo.png'
-              alt='Logo'
+              alt='DAIgnosisLab Logo'
               className='h-16 sm:h-20 md:h-24 w-auto mb-4'
             />
 
             <p className='text-gray-600 text-base md:text-lg leading-relaxed mb-6'>
-              AI-driven healthcare documentation designed to save time, reduce
-              errors, and improve patient outcomes.
+              AI-powered healthcare innovation focused on empowering clinicians, streamlining workflows, reducing errors, and improving global patient outcomes.
             </p>
 
             {/* Social Icons */}
@@ -51,45 +50,45 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
-              Quick Links
-            </h3>
-            <ul className='space-y-3'>
-              <li>
-                <a
-                  href='#about'
-                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
-                >
-                  About us
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#services'
-                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href='/Team'
-                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
-                >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#contact'
-                  className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div>
+              <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6'>
+                Quick Links
+              </h3>
+              <ul className='space-y-3'>
+                <li>
+                  <a
+                    href='#about'
+                    className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#services'
+                    className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='/Team'
+                    className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                  >
+                    Team
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='#contact'
+                    className='text-gray-600 hover:text-green-600 transition-colors duration-300 text-base md:text-lg'
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
 
           {/* Contact Info */}
           <div>

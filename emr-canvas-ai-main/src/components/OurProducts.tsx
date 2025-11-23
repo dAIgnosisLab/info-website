@@ -1,77 +1,161 @@
-import { FaFileAlt } from "react-icons/fa";
+import {
+  FaFileAlt,
+  FaStethoscope,
+  FaBrain,
+  FaMicroscope,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import clsx from "clsx";
 
-const products = [
+type ProductStatus = "Available" | "Beta" | "Coming Soon";
+
+interface Product {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+  status: ProductStatus;
+  route?: string;
+  accent?: string;
+}
+
+const products: Product[] = [
   {
     icon: <FaFileAlt />,
-    title: "AI EMR Documentation",
-    description:
-      "Transform doctor-patient conversations into comprehensive electronic medical records instantly. Our AI-powered solution automates documentation, saving time and improving accuracy.",
-    status: "Available Now",
-    statusColor: "bg-green-100 text-green-700",
+    title: "LiveNote",
+    description: "Generate structured EMR from doctor patient interactions.",
+    status: "Available",
     route: "/emr-generator",
+    accent: "from-green-500 to-emerald-600",
+  },
+  {
+    icon: <FaMicroscope />,
+    title: "X-3D",
+    description:
+      "Advanced multi‑plane AI-enhanced radiology reconstruction delivering sharper visualization and faster diagnostic review.",
+    status: "Available",
+    route: "/xray-to-3d",
+    accent: "from-pink-500 to-rose-600",
   },
 ];
 
+const statusStyles: Record<ProductStatus, string> = {
+  Available: "bg-green-100 text-green-700 border border-green-200",
+  Beta: "bg-indigo-100 text-indigo-700 border border-indigo-200",
+  "Coming Soon": "bg-gray-100 text-gray-600 border border-gray-200",
+};
+
 export default function OurProducts() {
   const navigate = useNavigate();
-
-  const handleKnowMore = (route: string) => {
-    navigate(route);
+  const handleClick = (p: Product) => {
+    if (p.route && p.status === "Available") navigate(p.route);
   };
 
   return (
-    <section className="py-20 md:py-24 bg-gray-50" id="products">
-      <div className="container mx-auto px-6 lg:px-8">
-        
+    <section
+      id='products'
+      className='py-20 md:py-24 bg-gray-50'
+    >
+      <div className='container mx-auto px-6 lg:px-8'>
         {/* Heading */}
-        <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
-            Our <span className="text-green-600">Product</span>
+        <div className='text-center mb-12 md:mb-20'>
+          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6'>
+            Our <span className='text-green-600'>Products</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Innovative AI-powered solution designed to transform healthcare documentation and improve efficiency
+          <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+            Scalable AI solutions advancing healthcare intelligence, workflow
+            efficiency, and clinical outcomes.
           </p>
         </div>
 
-        {/* Product Card - Centered */}
-        <div className="max-w-2xl mx-auto">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-8 md:p-10 shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden"
+        {/* Grid */}
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+          {products.map((product, i) => (
+            <article
+              key={product.title + i}
+              className={clsx(
+                "group relative rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl",
+                "transition-all duration-300 overflow-hidden flex flex-col"
+              )}
             >
-              {/* Status Badge */}
-              <div className="absolute top-6 right-6">
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${product.statusColor}`}>
-                  {product.status}
-                </span>
+              {/* Accent gradient bar */}
+              <div
+                className={clsx(
+                  "absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r",
+                  product.accent || "from-green-500 to-emerald-600"
+                )}
+              />
+
+              <div className='p-6 md:p-7 flex flex-col flex-1'>
+                <div className='flex items-start justify-between mb-5'>
+                  <div
+                    className={clsx(
+                      "w-16 h-16 rounded-xl flex items-center justify-center text-3xl text-white",
+                      "bg-gradient-to-br",
+                      product.accent || "from-green-500 to-emerald-600",
+                      "shadow-md group-hover:scale-105 group-hover:shadow-lg transition-transform duration-300"
+                    )}
+                    aria-hidden='true'
+                  >
+                    {product.icon}
+                  </div>
+
+                  <span
+                    className={clsx(
+                      "px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap",
+                      "tracking-wide",
+                      statusStyles[product.status]
+                    )}
+                  >
+                    {product.status}
+                  </span>
+                </div>
+
+                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-snug'>
+                  {product.title}
+                </h3>
+
+                <p className='text-sm md:text-base text-gray-600 leading-relaxed flex-1'>
+                  {product.description}
+                </p>
+
+                {/* Action */}
+                <div className='mt-6'>
+                  <button
+                    onClick={() => handleClick(product)}
+                    disabled={!product.route || product.status !== "Available"}
+                    className={clsx(
+                      "relative w-full px-5 py-3 rounded-lg font-semibold text-sm md:text-base",
+                      "border-2 overflow-hidden",
+                      product.status === "Available"
+                        ? "border-green-600 text-green-600 hover:text-white"
+                        : "border-gray-300 text-gray-400 cursor-not-allowed",
+                      "transition-colors duration-300"
+                    )}
+                  >
+                    <span className='relative z-10'>
+                      {product.status === "Available"
+                        ? "Explore"
+                        : product.status === "Beta"
+                        ? "Request Access"
+                        : "Notify Me"}
+                    </span>
+                    {product.status === "Available" && (
+                      <span className='absolute inset-0 bg-green-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500' />
+                    )}
+                  </button>
+                </div>
               </div>
 
-              {/* Icon */}
-              <div className="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 text-4xl mb-6">
-                {product.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                {product.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
-                {product.description}
-              </p>
-
-              {/* Know More Button */}
-              <button 
-                onClick={() => handleKnowMore(product.route)}
-                className="group relative px-6 py-3 bg-white text-green-600 font-semibold rounded-lg border-2 border-green-600 overflow-hidden transition-all duration-300 hover:text-white"
-              >
-                <span className="relative z-10">Know More</span>
-                <span className="absolute inset-0 bg-green-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500"></span>
-              </button>
-            </div>
+              {/* Hover glow */}
+              <div
+                className={clsx(
+                  "pointer-events-none absolute -inset-10 opacity-0 group-hover:opacity-10",
+                  "bg-gradient-to-br",
+                  product.accent || "from-green-500 to-emerald-600",
+                  "blur-2xl transition-opacity duration-500"
+                )}
+              />
+            </article>
           ))}
         </div>
       </div>
