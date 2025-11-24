@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
 import EmrGeneratorPage from "./pages/EmrGeneratorPage";
-import XrayTo3DPage from "./pages/xrayto3d";
+import XrayTo3DPage from "./pages/Xrayto3d";
 
 const queryClient = new QueryClient();
 
