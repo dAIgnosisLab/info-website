@@ -8,7 +8,6 @@ import {
   FaShapes,
   FaChartBar,
   FaCheckCircle,
-  FaExclamationTriangle,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -64,14 +63,6 @@ const benefits = [
   },
 ];
 
-const roadmap: Feature[] = [
-  {
-    icon: <FaExclamationTriangle />,
-    title: "AI Anomaly Detection (Planned)",
-    description: "Future layer to surface atypical densities and structural deviations.",
-  },
-];
-
 export default function XrayTo3DPage() {
   const navigate = useNavigate();
 
@@ -110,7 +101,7 @@ export default function XrayTo3DPage() {
               <div className='text-center'>
                 <FaCube className='text-7xl md:text-8xl text-pink-600 mx-auto mb-4' />
                 <p className='text-xl font-semibold text-gray-900'>Reconstruction Preview</p>
-                <p className='text-sm text-gray-500 mt-1'>Interactive viewer & anomaly layer in future release.</p>
+                <p className='text-sm text-gray-500 mt-1'>Interactive viewer coming soon.</p>
               </div>
             </div>
           </div>
@@ -158,31 +149,6 @@ export default function XrayTo3DPage() {
                 <div className='text-4xl font-bold text-pink-600 mb-2'>{b.stat}</div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-2'>{b.title}</h3>
                 <p className='text-sm md:text-base text-gray-600 leading-relaxed'>{b.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Roadmap */}
-      <div className='py-12 md:py-16 bg-pink-50'>
-        <div className='max-w-5xl mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-bold text-center mb-10'>
-            Roadmap <span className='text-pink-600'>Preview</span>
-          </h2>
-          <div className='grid sm:grid-cols-2 gap-8'>
-            {roadmap.map((r, i) => (
-              <div
-                key={i}
-                className='bg-white border border-pink-200 rounded-2xl p-6 md:p-7 flex gap-5 items-start shadow-sm'
-              >
-                <div className='w-14 h-14 bg-pink-600 rounded-xl flex items-center justify-center text-white text-2xl'>
-                  {r.icon}
-                </div>
-                <div>
-                  <h3 className='text-lg md:text-xl font-bold text-pink-700 mb-2'>{r.title}</h3>
-                  <p className='text-sm md:text-base text-pink-900/80 leading-relaxed'>{r.description}</p>
-                </div>
               </div>
             ))}
           </div>

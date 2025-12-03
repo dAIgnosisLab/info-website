@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { FaRobot, FaHospital, FaChartLine, FaUserMd } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -35,36 +36,68 @@ const FeaturesSection = () => {
     <section
       ref={ref}
       id='services'
-      className='py-20 md:py-28 bg-white'
+      className='py-20 md:py-28 bg-gray-50 relative overflow-hidden'
     >
-      <div className='container mx-auto px-6 lg:px-10'>
-        <div className='text-center mb-14 md:mb-20'>
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5'>
-            Healthcare AI
-            <br />
-            <span className='text-green-600'>Made Simple</span>
-          </h2>
-          <p className='text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed'>
-            We build easy AI tools that help improve care, save time and give better results.
-          </p>
+      {/* Subtle background decoration */}
+      <div className='absolute inset-0 pointer-events-none'>
+        <div className='absolute top-20 right-10 w-80 h-80 bg-green-100 rounded-full blur-3xl opacity-30'></div>
+        <div className='absolute bottom-20 left-10 w-80 h-80 bg-green-50 rounded-full blur-3xl opacity-40'></div>
+      </div>
+
+      <div className='container mx-auto px-6 lg:px-10 relative z-10'>
+        {/* Heading */}
+        <div className='text-center mb-16 md:mb-20'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4'>
+              Healthcare AI
+              <br />
+              <span className='text-green-600'>Made Simple</span>
+            </h2>
+            <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
+            <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
+              We build easy AI tools that help improve care, save time and give better results.
+            </p>
+          </motion.div>
         </div>
 
+        {/* Grid */}
         <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8'>
           {features.map((f, i) => (
-            <div
+            <motion.div
               key={i}
-              className='rounded-2xl p-6 md:p-7 bg-white border border-gray-200 shadow-sm'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className='group bg-white rounded-2xl p-6 md:p-7 border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all duration-300'
             >
-              <div className='w-14 h-14 md:w-16 md:h-16 rounded-xl bg-green-600 flex items-center justify-center text-white text-2xl md:text-3xl mb-5'>
-                {f.icon}
+              {/* Icon */}
+              <div className='relative mb-5'>
+                <div className='w-14 h-14 md:w-16 md:h-16 rounded-xl bg-green-600 flex items-center justify-center text-white text-2xl md:text-3xl shadow-md group-hover:scale-110 transition-transform duration-300'>
+                  {f.icon}
+                </div>
+                {/* Decorative dot */}
+                <div className='absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
               </div>
+
+              {/* Title */}
               <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2'>
                 {f.title}
               </h3>
-              <p className='text-sm md:text-base text-gray-600 leading-relaxed'>
+
+              {/* Description */}
+              <p className='text-sm md:text-base text-gray-600 leading-relaxed mb-4'>
                 {f.description}
               </p>
-            </div>
+
+              {/* Bottom accent line */}
+              <div className='h-1 w-0 bg-gradient-to-r from-green-500 to-green-600 group-hover:w-full transition-all duration-500'></div>
+            </motion.div>
           ))}
         </div>
       </div>

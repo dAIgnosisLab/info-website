@@ -1,19 +1,40 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGraduationCap } from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
-const communityMembers = [
+const advisors = [
+  {
+    name: "Sunil Aryal",
+    credentials: "PhD, FHEA, MIEEE, MACS",
+    role: "AI/ML Technical Advisor",
+    organization: "Deakin University",
+    description:
+      "Dr Sunil Aryal is an Associate Professor of Data Science at the Deakin University School of Information Technology. His research interests are in the areas of Artificial Intelligence (AI), Machine Learning (ML) and Data Mining (DM). He is particularly interested in the application of AI/ML/DM models to solve real-world problems in applications such as Defence, National Intelligence, Engineering, Manufacturing, Healthcare and Education. He co-leads the Machine Learning for Decision Support (MLDS) Research Group at Deakin University. He has published over 49 papers in top-tier international venues in AI, ML and DM. He is a named investigator in research grants with over AUD 4 million in funding. His research is supported by US and Australia Defence Agencies, Australian Office of National Intelligence, and multiple international organizations.",
+    imageUrl: "/sunil_aryal.jpg",
+    github: "https://github.com/sunilaryal",
+    linkedin: "https://www.linkedin.com/in/sunil-aryal/",
+    twitter: "https://twitter.com/sunilaryal",
+    email: "mailto:sunil.aryal@deakin.edu.au",
+    scholar: "https://scholar.google.com/citations?user=SCHOLAR_ID",
+  },
+];
+
+const medicalTeam = [
   {
     name: "Prakash Kandel",
     credentials: "MD/MBA",
     role: "Clinical & Business Lead",
     organization: "CAMS",
     description:
-      "Dr. Prakash Kandel is a hospital medicine physician and Associate Medical Director at L&M Hospital under Yale New Haven Health. With over two decades of experience in healthcare, he has served diverse communities—from refugee camps and rural clinics in East Africa to hospitals and nursing homes across the U.S. He previously worked with the World Health Organization on polio eradication efforts in Nepal. Dr. Kandel values curiosity, lifelong learning, and exploring new approaches to improve healthcare delivery.",
+      "Prakash Kandel is a US board-certified physician and an accomplished physician leader dedicated to advancing clinical excellence, patient experience, safety, and quality of care through clinical redesign. With over two decades of experience, he has served in many leadership roles, including most recently as Vice President of Medical Staff at L&M Hospital / Yale New Haven Health. His extensive experience spans diverse communities—from refugee camps and rural clinics in East Africa to hospitals and nursing homes across the U.S. Dr. Kandel previously contributed to global health efforts by working with the World Health Organization on immunization preventable diseases in Nepal. He champions curiosity, lifelong learning, and exploring innovative approaches to fundamentally improve healthcare delivery.",
     imageUrl: "/prakash_kandel.jpg",
     github: "",
     linkedin: "https://www.linkedin.com/in/prakandel/",
   },
+];
+
+const technicalTeam = [
   {
     name: "Jeevan Neupane",
     credentials: "",
@@ -61,114 +82,328 @@ const communityMembers = [
 ];
 
 export default function TeamPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   return (
-    <section className='relative min-h-screen overflow-hidden'>
-      {/* BACKGROUND (Z-0 BEHIND EVERYTHING) */}
-      <div className='absolute inset-0 z-0 pointer-events-none'>
-        <div className='absolute inset-0 bg-white' />
+    <section className='relative min-h-screen bg-gray-50'>
+      <Navigation />
+
+      {/* Main Heading */}
+      <div className='text-center pt-32 md:pt-40 pb-16 md:pb-20 px-4'>
+        <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
+          <span className='text-gray-900'>Meet Our </span>
+          <span className='text-green-600'>Team</span>
+        </h1>
+        <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
+          Passionate experts dedicated to transforming healthcare through AI innovation
+        </p>
       </div>
 
-      {/* FOREGROUND CONTENT (Z-10 ABOVE BACKGROUND) */}
-      <div className='relative z-10'>
-        <Navigation />
-
-        {/* Heading */}
-        <div className='text-center pt-32 md:pt-40 pb-12 md:pb-16 px-4'>
-          <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6'>
-            <span className='text-gray-900'>Meet Our </span>
-            <span className='text-gray-900'>Team</span>
-          </h1>
-          <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            Passionate experts dedicated to transforming healthcare through AI
-            innovation
+      {/* ADVISORS SECTION */}
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+        <div className='text-center mb-12'>
+          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+            Advisors
+          </h2>
+          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+          <p className='text-sm md:text-base text-gray-600'>
+            World-class technical guidance shaping our AI innovation
           </p>
         </div>
 
-        {/* Cards */}
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-          <div className='grid gap-10 md:gap-12 sm:grid-cols-1 lg:grid-cols-2'>
-            {communityMembers.map((m, i) => (
-              <div
-                key={i}
-                className='bg-white rounded-2xl p-8 md:p-10 shadow-md border border-gray-100 
-                           hover:shadow-2xl transition-all duration-300 hover:scale-[1.01]
-                           flex flex-col'
-              >
-                {/* Image */}
-                <div className='relative mb-8 rounded-xl overflow-hidden border-4 border-gray-100 bg-gray-50 h-80 md:h-96 lg:h-[28rem]'>
+        <div className='max-w-3xl mx-auto'>
+          {advisors.map((m, i) => (
+            <div
+              key={i}
+              className='bg-white rounded-xl p-8 md:p-10 shadow-sm border border-gray-200'
+            >
+              {/* Circular Image */}
+              <div className='flex justify-center mb-6'>
+                <div className='relative w-40 h-40 md:w-48 md:h-48'>
                   <img
                     src={m.imageUrl}
                     alt={m.name}
                     loading='lazy'
-                    decoding='async'
-                    className='absolute inset-0 w-full h-full object-contain'
+                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
                   />
                 </div>
+              </div>
 
-                {/* Name & Credentials */}
-                <div className='text-center mb-4'>
-                  <h3 className='text-3xl md:text-4xl font-bold text-gray-900'>
-                    {m.name}
-                  </h3>
-                  {m.credentials && (
-                    <p className='text-lg md:text-xl text-gray-600 font-semibold mt-2'>
-                      {m.credentials}
-                    </p>
-                  )}
-                </div>
-
-                {/* Role & Organization */}
-                <div className='text-center mb-6'>
-                  <p className='text-xl md:text-2xl font-semibold text-gray-900'>
-                    {m.role}
+              {/* Name & Credentials */}
+              <div className='text-center mb-4'>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-1'>
+                  {m.name}
+                </h3>
+                {m.credentials && (
+                  <p className='text-sm md:text-base text-gray-600 font-medium'>
+                    {m.credentials}
                   </p>
-                  {m.organization && (
-                    <p className='text-base md:text-lg text-gray-600 mt-1'>
-                      {m.organization}
-                    </p>
-                  )}
-                </div>
-
-                {/* Description */}
-                <p className='text-base md:text-lg text-gray-600 text-justify leading-relaxed mb-8 flex-grow'>
-                  {m.description}
-                </p>
-
-                {/* Social Links - Only show if links are provided */}
-                {(m.github || m.linkedin) && (
-                  <div className='flex justify-center gap-4 pt-6 border-t border-gray-100'>
-                    {m.github && (
-                      <a
-                        href={m.github}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-all duration-300'
-                        aria-label={`${m.name}'s GitHub`}
-                      >
-                        <FaGithub className='w-6 h-6' />
-                      </a>
-                    )}
-                    {m.linkedin && (
-                      <a
-                        href={m.linkedin}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300'
-                        aria-label={`${m.name}'s LinkedIn`}
-                      >
-                        <FaLinkedin className='w-6 h-6' />
-                      </a>
-                    )}
-                  </div>
                 )}
               </div>
-            ))}
-          </div>
+
+              {/* Role & Organization */}
+              <div className='text-center mb-6'>
+                <p className='text-base md:text-lg font-semibold text-gray-900'>
+                  {m.role}
+                </p>
+                {m.organization && (
+                  <p className='text-sm md:text-base text-gray-600 mt-1'>
+                    {m.organization}
+                  </p>
+                )}
+              </div>
+
+              {/* Description */}
+              <p className='text-sm md:text-base text-gray-600 text-center leading-relaxed mb-6'>
+                {m.description}
+              </p>
+
+              {/* Social Links */}
+              <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
+                {m.github && (
+                  <a
+                    href={m.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
+                    aria-label='GitHub'
+                  >
+                    <FaGithub className='w-5 h-5' />
+                  </a>
+                )}
+                {m.linkedin && (
+                  <a
+                    href={m.linkedin}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
+                    aria-label='LinkedIn'
+                  >
+                    <FaLinkedin className='w-5 h-5' />
+                  </a>
+                )}
+                {m.twitter && (
+                  <a
+                    href={m.twitter}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-sky-500 hover:text-white transition-colors'
+                    aria-label='Twitter'
+                  >
+                    <FaTwitter className='w-5 h-5' />
+                  </a>
+                )}
+                {m.email && (
+                  <a
+                    href={m.email}
+                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-colors'
+                    aria-label='Email'
+                  >
+                    <FaEnvelope className='w-5 h-5' />
+                  </a>
+                )}
+                {m.scholar && (
+                  <a
+                    href={m.scholar}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-colors'
+                    aria-label='Google Scholar'
+                  >
+                    <FaGraduationCap className='w-5 h-5' />
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* MEDICAL TEAM SECTION */}
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+        <div className='text-center mb-12'>
+          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+            Medical Team
+          </h2>
+          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+          <p className='text-sm md:text-base text-gray-600'>
+            Clinical expertise guiding our healthcare solutions
+          </p>
         </div>
 
-        {/* Footer */}
-        <Footer />
+        <div className='max-w-3xl mx-auto'>
+          {medicalTeam.map((m, i) => (
+            <div
+              key={i}
+              className='bg-white rounded-xl p-8 md:p-10 shadow-sm border border-gray-200'
+            >
+              {/* Circular Image */}
+              <div className='flex justify-center mb-6'>
+                <div className='relative w-40 h-40 md:w-48 md:h-48'>
+                  <img
+                    src={m.imageUrl}
+                    alt={m.name}
+                    loading='lazy'
+                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
+                  />
+                </div>
+              </div>
+
+              {/* Name & Credentials */}
+              <div className='text-center mb-4'>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-1'>
+                  {m.name}
+                </h3>
+                {m.credentials && (
+                  <p className='text-sm md:text-base text-gray-600 font-medium'>
+                    {m.credentials}
+                  </p>
+                )}
+              </div>
+
+              {/* Role & Organization */}
+              <div className='text-center mb-6'>
+                <p className='text-base md:text-lg font-semibold text-gray-900'>
+                  {m.role}
+                </p>
+                {m.organization && (
+                  <p className='text-sm md:text-base text-gray-600 mt-1'>
+                    {m.organization}
+                  </p>
+                )}
+              </div>
+
+              {/* Description */}
+              <p className='text-sm md:text-base text-gray-600 text-center leading-relaxed mb-6'>
+                {m.description}
+              </p>
+
+              {/* Social Links */}
+              {(m.github || m.linkedin) && (
+                <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
+                  {m.github && (
+                    <a
+                      href={m.github}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
+                      aria-label='GitHub'
+                    >
+                      <FaGithub className='w-5 h-5' />
+                    </a>
+                  )}
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
+                      aria-label='LinkedIn'
+                    >
+                      <FaLinkedin className='w-5 h-5' />
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* TECHNICAL TEAM SECTION */}
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+        <div className='text-center mb-12'>
+          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+            Technical Team
+          </h2>
+          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+          <p className='text-sm md:text-base text-gray-600'>
+            Engineering excellence driving healthcare AI innovation
+          </p>
+        </div>
+
+        <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+          {technicalTeam.map((m, i) => (
+            <div
+              key={i}
+              className='bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200'
+            >
+              {/* Circular Image */}
+              <div className='flex justify-center mb-5'>
+                <div className='relative w-32 h-32 md:w-36 md:h-36'>
+                  <img
+                    src={m.imageUrl}
+                    alt={m.name}
+                    loading='lazy'
+                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
+                  />
+                </div>
+              </div>
+
+              {/* Name & Credentials */}
+              <div className='text-center mb-3'>
+                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-1'>
+                  {m.name}
+                </h3>
+                {m.credentials && (
+                  <p className='text-sm text-gray-600 font-medium'>
+                    {m.credentials}
+                  </p>
+                )}
+              </div>
+
+              {/* Role & Organization */}
+              <div className='text-center mb-4'>
+                <p className='text-sm md:text-base font-semibold text-gray-900'>
+                  {m.role}
+                </p>
+                {m.organization && (
+                  <p className='text-xs md:text-sm text-gray-600 mt-1'>
+                    {m.organization}
+                  </p>
+                )}
+              </div>
+
+              {/* Description */}
+              <p className='text-xs md:text-sm text-gray-600 text-center leading-relaxed mb-5'>
+                {m.description}
+              </p>
+
+              {/* Social Links */}
+              {(m.github || m.linkedin) && (
+                <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
+                  {m.github && (
+                    <a
+                      href={m.github}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
+                      aria-label='GitHub'
+                    >
+                      <FaGithub className='w-4 h-4' />
+                    </a>
+                  )}
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
+                      aria-label='LinkedIn'
+                    >
+                      <FaLinkedin className='w-4 h-4' />
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Footer />
     </section>
   );
 }

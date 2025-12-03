@@ -1,7 +1,5 @@
 import {
   FaFileAlt,
-  FaStethoscope,
-  FaBrain,
   FaMicroscope,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -39,9 +37,9 @@ const products: Product[] = [
 ];
 
 const statusStyles: Record<ProductStatus, string> = {
-  Available: "bg-green-100 text-green-700 border border-green-200",
-  Beta: "bg-indigo-100 text-indigo-700 border border-indigo-200",
-  "Coming Soon": "bg-gray-100 text-gray-600 border border-gray-200",
+  Available: "bg-green-50 text-green-700 border border-green-200",
+  Beta: "bg-indigo-50 text-indigo-700 border border-indigo-200",
+  "Coming Soon": "bg-gray-50 text-gray-600 border border-gray-200",
 };
 
 export default function OurProducts() {
@@ -53,56 +51,43 @@ export default function OurProducts() {
   return (
     <section
       id='products'
-      className='py-20 md:py-24 bg-gray-50'
+      className='py-20 md:py-28 bg-white'
     >
       <div className='container mx-auto px-6 lg:px-8'>
         {/* Heading */}
-        <div className='text-center mb-12 md:mb-20'>
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6'>
+        <div className='text-center mb-16 md:mb-20'>
+          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4'>
             Our <span className='text-green-600'>Products</span>
           </h2>
-          <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            Scalable AI solutions advancing healthcare intelligence, workflow
-            efficiency, and clinical outcomes.
+          <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
+          <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
+            Simple AI tools that help improve healthcare delivery and patient outcomes.
           </p>
         </div>
 
         {/* Grid */}
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+        <div className='grid sm:grid-cols-2 gap-8 md:gap-10 max-w-4xl mx-auto'>
           {products.map((product, i) => (
             <article
               key={product.title + i}
-              className={clsx(
-                "group relative rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl",
-                "transition-all duration-300 overflow-hidden flex flex-col"
-              )}
+              className='group bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col'
             >
-              {/* Accent gradient bar */}
-              <div
-                className={clsx(
-                  "absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r",
-                  product.accent || "from-green-500 to-emerald-600"
-                )}
-              />
-
-              <div className='p-6 md:p-7 flex flex-col flex-1'>
-                <div className='flex items-start justify-between mb-5'>
+              <div className='p-8 md:p-10 flex flex-col flex-1'>
+                {/* Icon */}
+                <div className='flex items-center justify-between mb-6'>
                   <div
                     className={clsx(
-                      "w-16 h-16 rounded-xl flex items-center justify-center text-3xl text-white",
+                      "w-16 h-16 rounded-xl flex items-center justify-center text-3xl text-white shadow-sm",
                       "bg-gradient-to-br",
-                      product.accent || "from-green-500 to-emerald-600",
-                      "shadow-md group-hover:scale-105 group-hover:shadow-lg transition-transform duration-300"
+                      product.accent || "from-green-500 to-emerald-600"
                     )}
-                    aria-hidden='true'
                   >
                     {product.icon}
                   </div>
 
                   <span
                     className={clsx(
-                      "px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap",
-                      "tracking-wide",
+                      "px-3 py-1.5 rounded-full text-xs font-semibold",
                       statusStyles[product.status]
                     )}
                   >
@@ -110,51 +95,35 @@ export default function OurProducts() {
                   </span>
                 </div>
 
-                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-snug'>
+                {/* Title */}
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-3'>
                   {product.title}
                 </h3>
 
-                <p className='text-sm md:text-base text-gray-600 leading-relaxed flex-1'>
+                {/* Description */}
+                <p className='text-sm md:text-base text-gray-600 leading-relaxed flex-1 mb-6'>
                   {product.description}
                 </p>
 
-                {/* Action */}
-                <div className='mt-6'>
-                  <button
-                    onClick={() => handleClick(product)}
-                    disabled={!product.route || product.status !== "Available"}
-                    className={clsx(
-                      "relative w-full px-5 py-3 rounded-lg font-semibold text-sm md:text-base",
-                      "border-2 overflow-hidden",
-                      product.status === "Available"
-                        ? "border-green-600 text-green-600 hover:text-white"
-                        : "border-gray-300 text-gray-400 cursor-not-allowed",
-                      "transition-colors duration-300"
-                    )}
-                  >
-                    <span className='relative z-10'>
-                      {product.status === "Available"
-                        ? "Explore"
-                        : product.status === "Beta"
-                        ? "Request Access"
-                        : "Notify Me"}
-                    </span>
-                    {product.status === "Available" && (
-                      <span className='absolute inset-0 bg-green-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500' />
-                    )}
-                  </button>
-                </div>
+                {/* Button */}
+                <button
+                  onClick={() => handleClick(product)}
+                  disabled={!product.route || product.status !== "Available"}
+                  className={clsx(
+                    "w-full px-6 py-3 rounded-lg font-semibold text-base",
+                    product.status === "Available"
+                      ? "bg-green-600 text-white hover:bg-green-700"
+                      : "bg-gray-100 text-gray-400 cursor-not-allowed",
+                    "transition-colors duration-300"
+                  )}
+                >
+                  {product.status === "Available"
+                    ? "Learn More"
+                    : product.status === "Beta"
+                    ? "Request Access"
+                    : "Coming Soon"}
+                </button>
               </div>
-
-              {/* Hover glow */}
-              <div
-                className={clsx(
-                  "pointer-events-none absolute -inset-10 opacity-0 group-hover:opacity-10",
-                  "bg-gradient-to-br",
-                  product.accent || "from-green-500 to-emerald-600",
-                  "blur-2xl transition-opacity duration-500"
-                )}
-              />
             </article>
           ))}
         </div>

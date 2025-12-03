@@ -1,4 +1,5 @@
 import { FaRocket, FaBrain, FaUsers } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const aboutItems = [
   {
@@ -25,54 +26,82 @@ export default function AboutUsSection() {
   return (
     <section
       id='about'
-      className='py-20 md:py-28 lg:py-32 bg-gradient-to-b from-white to-gray-50'
+      className='py-20 md:py-28 bg-white relative overflow-hidden'
     >
-      <div className='container mx-auto px-6 lg:px-8'>
+      {/* Subtle background decoration */}
+      <div className='absolute inset-0 pointer-events-none'>
+        <div className='absolute top-0 left-1/4 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-50'></div>
+        <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-40'></div>
+      </div>
+
+      <div className='container mx-auto px-6 lg:px-8 relative z-10'>
         {/* Heading */}
-        <div className='text-center mb-16 md:mb-24'>
-          <div className='flex items-center justify-center gap-4 md:gap-6 mb-8 md:mb-10'>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900'>
-              About
-            </h2>
+        <div className='text-center mb-16 md:mb-20'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className='flex items-center justify-center gap-6 mb-8'>
+              <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900'>
+                About
+              </h2>
 
-          
-            <div className='shrink-0 h-[8rem] w-[12rem] md:h-[10rem] md:w-[15rem] lg:h-[12rem] lg:w-[18rem]'>
-              <img
-                src='/logo.png'
-                alt='DAIgnosisLab Logo'
-                className='h-full w-full object-contain transition-transform duration-300 hover:scale-105'
-              />
+              <div className='shrink-0 h-24 w-32 md:h-28 md:w-40 lg:h-32 lg:w-48'>
+                <img
+                  src='/logo.png'
+                  alt='DAIgnosisLab Logo'
+                  className='h-full w-full object-contain drop-shadow-lg'
+                />
+              </div>
             </div>
-          </div>
 
-          <p className='text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed'>
-            We are a healthcare technology startup dedicated to transforming
-            healthcare through artificial intelligence. Our mission is to
-            advance the healthcare system globally by providing innovative,
-            AI-powered solutions that streamline workflows and enhance patient
-            care quality.
-          </p>
+            <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
+
+            <p className='text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+              We are a healthcare technology startup dedicated to transforming
+              healthcare through artificial intelligence. Our mission is to
+              advance the healthcare system globally by providing innovative,
+              AI-powered solutions that streamline workflows and enhance patient
+              care quality.
+            </p>
+          </motion.div>
         </div>
 
         {/* Grid */}
-        <div className='grid md:grid-cols-3 gap-8 md:gap-10 lg:gap-12'>
+        <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
           {aboutItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className='bg-white rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-xl border border-gray-200 transition-all duration-300 hover:-translate-y-2'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className='group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-green-200 transition-all duration-300'
             >
-              <div className='w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center text-green-600 text-4xl md:text-5xl mb-6 transition-transform duration-300 hover:scale-110'>
-                {item.icon}
+              {/* Icon container */}
+              <div className='relative mb-6'>
+                <div className='w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center text-white text-3xl shadow-md group-hover:scale-110 transition-transform duration-300'>
+                  {item.icon}
+                </div>
+                {/* Decorative dot */}
+                <div className='absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
               </div>
 
-              <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
+              {/* Title */}
+              <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-3'>
                 {item.title}
               </h3>
 
-              <p className='text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed'>
+              {/* Description */}
+              <p className='text-sm md:text-base text-gray-600 leading-relaxed'>
                 {item.description}
               </p>
-            </div>
+
+              {/* Bottom accent line */}
+              <div className='mt-6 h-1 w-0 bg-gradient-to-r from-green-500 to-green-600 group-hover:w-full transition-all duration-500'></div>
+            </motion.div>
           ))}
         </div>
       </div>
