@@ -35,12 +35,12 @@ const App = () => (
             element={<NotFound />}
           />
         </Routes>
-        
+
         {/* Floating Promo Button - Visible on all pages */}
-        <FloatingPromoButton 
-          text="Try MediSun"
-          link="https://www.emrgenerator.site"
-          position="right"
+        <FloatingPromoButton
+          text='Try Laisten'
+          link='https://www.emrgenerator.site'
+          position='right'
         />
       </BrowserRouter>
     </TooltipProvider>

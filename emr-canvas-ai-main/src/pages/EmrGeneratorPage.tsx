@@ -85,9 +85,11 @@ export default function EmrGeneratorPage() {
             Available Now
           </span>
           <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6'>
-            <span className='text-green-600'>MediSun</span>
+            <span className='text-green-600'>Laisten</span>
             <br />
-            <span className='text-gray-900 text-4xl md:text-5xl lg:text-6xl'>AI‑Powered EMR Generation</span>
+            <span className='text-gray-900 text-4xl md:text-5xl lg:text-6xl'>
+              AI‑Powered EMR Generation
+            </span>
           </h1>
           <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
             Convert clinical conversations into structured medical records in
@@ -98,7 +100,7 @@ export default function EmrGeneratorPage() {
             <div className='aspect-video bg-white rounded-2xl flex items-center justify-center border border-green-200 overflow-hidden'>
               <iframe
                 src='https://www.emrgenerator.site'
-                title='MediSun - EMR Generator Demo'
+                title='Laisten - EMR Generator Demo'
                 className='w-full h-full'
                 allow='microphone'
               />
@@ -111,7 +113,7 @@ export default function EmrGeneratorPage() {
                 className='px-8 py-3 bg-green-600 text-white text-base md:text-lg font-semibold rounded-lg hover:bg-green-700 shadow-sm hover:shadow-md transition-all duration-300 inline-flex items-center justify-center gap-2'
               >
                 <FaFileAlt />
-                Try MediSun Live
+                Try Laisten Live
               </a>
               <button
                 onClick={handleRequestDemo}
@@ -128,7 +130,7 @@ export default function EmrGeneratorPage() {
       <div className='py-16 md:py-20 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-4'>
           <h2 className='text-4xl md:text-5xl font-bold text-center mb-12'>
-            How <span className='text-green-600'>MediSun</span> Works
+            How <span className='text-green-600'>Laisten</span> Works
           </h2>
           <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8'>
             {features.map((f, i) => (
@@ -185,7 +187,7 @@ export default function EmrGeneratorPage() {
       <div className='py-16 md:py-20 bg-green-600'>
         <div className='max-w-4xl mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>
-            Ready to Experience MediSun?
+            Ready to Experience Laisten?
           </h2>
           <p className='text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto'>
             Join clinicians adopting AI to accelerate care delivery and reduce

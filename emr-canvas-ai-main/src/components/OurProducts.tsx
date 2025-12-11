@@ -17,8 +17,9 @@ interface Product {
 const products: Product[] = [
   {
     icon: <FaNotesMedical />,
-    title: "MediSun",
-    description: "AI-powered EMR generation that converts doctor-patient conversations into structured medical records instantly. Save time, reduce errors, and focus on patient care.",
+    title: "Laisten",
+    description:
+      "AI-powered EMR generation that converts doctor-patient conversations into structured medical records instantly. Save time, reduce errors, and focus on patient care.",
     status: "Available",
     route: "/emr-generator",
     accent: "from-green-500 to-emerald-600",
@@ -62,7 +63,8 @@ export default function OurProducts() {
           </h2>
           <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
           <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-            Intelligent AI solution transforming healthcare documentation and improving patient outcomes.
+            Intelligent AI solution transforming healthcare documentation and
+            improving patient outcomes.
           </p>
         </motion.div>
 
@@ -118,15 +120,21 @@ export default function OurProducts() {
                 <div className='mb-8 space-y-3'>
                   <div className='flex items-center gap-3 text-gray-700'>
                     <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>Real-time voice-to-text transcription</span>
+                    <span className='text-sm md:text-base'>
+                      Real-time voice-to-text transcription
+                    </span>
                   </div>
                   <div className='flex items-center gap-3 text-gray-700'>
                     <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>AI-powered clinical data extraction</span>
+                    <span className='text-sm md:text-base'>
+                      AI-powered clinical data extraction
+                    </span>
                   </div>
                   <div className='flex items-center gap-3 text-gray-700'>
                     <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>Structured EMR output ready for use</span>
+                    <span className='text-sm md:text-base'>
+                      Structured EMR output ready for use
+                    </span>
                   </div>
                 </div>
 
@@ -143,7 +151,7 @@ export default function OurProducts() {
                   )}
                 >
                   {product.status === "Available"
-                    ? "Explore MediSun →"
+                    ? "Explore Laisten →"
                     : product.status === "Beta"
                     ? "Request Access"
                     : "Coming Soon"}

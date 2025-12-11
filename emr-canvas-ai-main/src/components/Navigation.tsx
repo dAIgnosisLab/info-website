@@ -10,10 +10,10 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Set scrolled state for styling
       setScrolled(currentScrollY > 20);
-      
+
       // Hide navbar when scrolling down past 100px, show when scrolling up
       if (currentScrollY > 100) {
         if (currentScrollY > lastScrollY) {
@@ -24,7 +24,7 @@ const Navigation = () => {
       } else {
         setHideNav(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -48,44 +48,42 @@ const Navigation = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className='fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-green-600 via-emerald-600 to-green-600 bg-[length:200%_100%] animate-gradient cursor-pointer'
-        onClick={() => window.open('https://www.emrgenerator.site', '_blank')}
+        onClick={() => window.open("https://www.emrgenerator.site", "_blank")}
       >
         <div className='max-w-7xl mx-auto px-4 py-3'>
           <div className='flex items-center justify-center gap-3'>
             <motion.div
-              animate={{ 
+              animate={{
                 scale: [1, 1.2, 1],
-                rotate: [0, 10, -10, 0]
+                rotate: [0, 10, -10, 0],
               }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1
-              }}
-              className='text-2xl'
-            >
-              
-            </motion.div>
-            <div className='text-white font-semibold text-sm md:text-base text-center'>
-              <span className='hidden sm:inline'>Introducing </span>
-              <span className='font-bold'>MediSun</span> - AI EMR Generator
-              <span className='ml-2 text-xs md:text-sm opacity-90'>Click to try now →</span>
-            </div>
-            <motion.div
-              animate={{ 
-                scale: [1, 1.2, 1],
-                rotate: [0, -10, 10, 0]
-              }}
-              transition={{ 
+              transition={{
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 1,
-                delay: 0.5
               }}
               className='text-2xl'
-            >
-              
-            </motion.div>
+            ></motion.div>
+            <div className='text-white font-semibold text-sm md:text-base text-center'>
+              <span className='hidden sm:inline'>Introducing </span>
+              <span className='font-bold'>Laisten</span> - AI EMR Generator
+              <span className='ml-2 text-xs md:text-sm opacity-90'>
+                Click to try now →
+              </span>
+            </div>
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, -10, 10, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 1,
+                delay: 0.5,
+              }}
+              className='text-2xl'
+            ></motion.div>
           </div>
         </div>
       </motion.div>
@@ -93,7 +91,7 @@ const Navigation = () => {
       {/* Main Navigation - Hides on scroll down */}
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-300 top-[52px] ${
-          hideNav ? '-translate-y-full' : 'translate-y-0'
+          hideNav ? "-translate-y-full" : "translate-y-0"
         } ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg"
