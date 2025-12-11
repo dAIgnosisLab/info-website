@@ -85,8 +85,9 @@ export default function EmrGeneratorPage() {
             Available Now
           </span>
           <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6'>
-            <span className='text-gray-900'>AI‑Powered </span>
-            <span className='text-green-600'>EMR Generation</span>
+            <span className='text-green-600'>MediSun</span>
+            <br />
+            <span className='text-gray-900 text-4xl md:text-5xl lg:text-6xl'>AI‑Powered EMR Generation</span>
           </h1>
           <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
             Convert clinical conversations into structured medical records in
@@ -94,16 +95,30 @@ export default function EmrGeneratorPage() {
           </p>
 
           <div className='mt-10 bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 md:p-12 shadow-md'>
-            <div className='aspect-video bg-white rounded-2xl flex items-center justify-center border border-green-200'>
-              <div className='text-center'>
-                <FaFileAlt className='text-7xl md:text-8xl text-green-600 mx-auto mb-4' />
-                <p className='text-xl font-semibold text-gray-900'>
-                  Demo Preview
-                </p>
-                <p className='text-sm text-gray-500 mt-1'>
-                  Interactive demo is in progress.
-                </p>
-              </div>
+            <div className='aspect-video bg-white rounded-2xl flex items-center justify-center border border-green-200 overflow-hidden'>
+              <iframe
+                src='https://www.emrgenerator.site'
+                title='MediSun - EMR Generator Demo'
+                className='w-full h-full'
+                allow='microphone'
+              />
+            </div>
+            <div className='mt-6 flex flex-col sm:flex-row gap-4 justify-center'>
+              <a
+                href='https://www.emrgenerator.site'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='px-8 py-3 bg-green-600 text-white text-base md:text-lg font-semibold rounded-lg hover:bg-green-700 shadow-sm hover:shadow-md transition-all duration-300 inline-flex items-center justify-center gap-2'
+              >
+                <FaFileAlt />
+                Try MediSun Live
+              </a>
+              <button
+                onClick={handleRequestDemo}
+                className='px-8 py-3 bg-white text-green-600 text-base md:text-lg font-semibold rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300'
+              >
+                Request Full Access
+              </button>
             </div>
           </div>
         </div>
@@ -113,7 +128,7 @@ export default function EmrGeneratorPage() {
       <div className='py-16 md:py-20 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-4'>
           <h2 className='text-4xl md:text-5xl font-bold text-center mb-12'>
-            How It <span className='text-green-600'>Works</span>
+            How <span className='text-green-600'>MediSun</span> Works
           </h2>
           <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8'>
             {features.map((f, i) => (
@@ -170,7 +185,7 @@ export default function EmrGeneratorPage() {
       <div className='py-16 md:py-20 bg-green-600'>
         <div className='max-w-4xl mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>
-            Ready to Get Started?
+            Ready to Experience MediSun?
           </h2>
           <p className='text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto'>
             Join clinicians adopting AI to accelerate care delivery and reduce

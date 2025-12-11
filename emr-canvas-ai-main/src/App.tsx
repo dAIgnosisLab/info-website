@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
 import EmrGeneratorPage from "./pages/EmrGeneratorPage";
-import XrayTo3DPage from "./pages/Xrayto3d";
+import FloatingPromoButton from "./components/FloatingPromoButton";
 
 const queryClient = new QueryClient();
 
@@ -31,14 +31,17 @@ const App = () => (
             element={<EmrGeneratorPage />}
           />
           <Route
-            path='/xray-to-3d'
-            element={<XrayTo3DPage />}
-          />
-          <Route
             path='*'
             element={<NotFound />}
           />
         </Routes>
+        
+        {/* Floating Promo Button - Visible on all pages */}
+        <FloatingPromoButton 
+          text="Try MediSun"
+          link="https://www.emrgenerator.site"
+          position="right"
+        />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

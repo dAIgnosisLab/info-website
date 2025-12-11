@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGraduationCap } from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const advisors = [
   {
@@ -81,327 +81,280 @@ const technicalTeam = [
   },
 ];
 
+type TeamFilter = "all" | "medical" | "technical" | "advisors";
+
 export default function TeamPage() {
+  const [activeFilter, setActiveFilter] = useState<TeamFilter>("all");
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
+  const renderMember = (m: any, isLarge: boolean = false) => (
+    <div
+      className={`bg-white rounded-xl ${
+        isLarge ? "p-8 md:p-10" : "p-6 md:p-8"
+      } shadow-sm border border-gray-200`}
+    >
+      {/* Circular Image */}
+      <div className="flex justify-center mb-6">
+        <div
+          className={`relative ${
+            isLarge ? "w-40 h-40 md:w-48 md:h-48" : "w-32 h-32 md:w-36 md:h-36"
+          }`}
+        >
+          <img
+            src={m.imageUrl}
+            alt={m.name}
+            loading="lazy"
+            className="w-full h-full rounded-full object-cover border-4 border-gray-100"
+          />
+        </div>
+      </div>
+
+      {/* Name & Credentials */}
+      <div className="text-center mb-4">
+        <h3
+          className={`${
+            isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+          } font-bold text-gray-900 mb-1`}
+        >
+          {m.name}
+        </h3>
+        {m.credentials && (
+          <p
+            className={`${
+              isLarge ? "text-sm md:text-base" : "text-sm"
+            } text-gray-600 font-medium`}
+          >
+            {m.credentials}
+          </p>
+        )}
+      </div>
+
+      {/* Role & Organization */}
+      <div className="text-center mb-6">
+        <p
+          className={`${
+            isLarge ? "text-base md:text-lg" : "text-sm md:text-base"
+          } font-semibold text-gray-900`}
+        >
+          {m.role}
+        </p>
+        {m.organization && (
+          <p
+            className={`${
+              isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
+            } text-gray-600 mt-1`}
+          >
+            {m.organization}
+          </p>
+        )}
+      </div>
+
+      {/* Description */}
+      <p
+        className={`${
+          isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
+        } text-gray-600 text-center leading-relaxed mb-6`}
+      >
+        {m.description}
+      </p>
+
+      {/* Social Links */}
+      {(m.github || m.linkedin || m.twitter || m.email || m.scholar) && (
+        <div className="flex justify-center gap-3 pt-4 border-t border-gray-100">
+          {m.github && (
+            <a
+              href={m.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${
+                isLarge ? "w-10 h-10" : "w-9 h-9"
+              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors`}
+              aria-label="GitHub"
+            >
+              <FaGithub className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+            </a>
+          )}
+          {m.linkedin && (
+            <a
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${
+                isLarge ? "w-10 h-10" : "w-9 h-9"
+              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors`}
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+            </a>
+          )}
+          {m.twitter && (
+            <a
+              href={m.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${
+                isLarge ? "w-10 h-10" : "w-9 h-9"
+              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-sky-500 hover:text-white transition-colors`}
+              aria-label="Twitter"
+            >
+              <FaTwitter className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+            </a>
+          )}
+          {m.email && (
+            <a
+              href={m.email}
+              className={`${
+                isLarge ? "w-10 h-10" : "w-9 h-9"
+              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-colors`}
+              aria-label="Email"
+            >
+              <FaEnvelope className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+            </a>
+          )}
+          {m.scholar && (
+            <a
+              href={m.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${
+                isLarge ? "w-10 h-10" : "w-9 h-9"
+              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-colors`}
+              aria-label="Google Scholar"
+            >
+              <FaGraduationCap className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <section className='relative min-h-screen bg-gray-50'>
+    <section className="relative min-h-screen bg-gray-50">
       <Navigation />
 
       {/* Main Heading */}
-      <div className='text-center pt-32 md:pt-40 pb-16 md:pb-20 px-4'>
-        <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
-          <span className='text-gray-900'>Meet Our </span>
-          <span className='text-green-600'>Team</span>
+      <div className="text-center pt-32 md:pt-40 pb-12 md:pb-16 px-4">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <span className="text-gray-900">Meet Our </span>
+          <span className="text-green-600">Team</span>
         </h1>
-        <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
           Passionate experts dedicated to transforming healthcare through AI innovation
         </p>
       </div>
 
-      {/* ADVISORS SECTION */}
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-        <div className='text-center mb-12'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+      {/* Filter Toggle */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="flex flex-wrap justify-center gap-3">
+          <button
+            onClick={() => setActiveFilter("all")}
+            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
+              activeFilter === "all"
+                ? "bg-green-600 text-white shadow-md"
+                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
+            }`}
+          >
+            All Teams
+          </button>
+          <button
+            onClick={() => setActiveFilter("medical")}
+            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
+              activeFilter === "medical"
+                ? "bg-green-600 text-white shadow-md"
+                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
+            }`}
+          >
+            Medical Team
+          </button>
+          <button
+            onClick={() => setActiveFilter("technical")}
+            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
+              activeFilter === "technical"
+                ? "bg-green-600 text-white shadow-md"
+                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
+            }`}
+          >
+            Technical Team
+          </button>
+          <button
+            onClick={() => setActiveFilter("advisors")}
+            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
+              activeFilter === "advisors"
+                ? "bg-green-600 text-white shadow-md"
+                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
+            }`}
+          >
             Advisors
-          </h2>
-          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-          <p className='text-sm md:text-base text-gray-600'>
-            World-class technical guidance shaping our AI innovation
-          </p>
-        </div>
-
-        <div className='max-w-3xl mx-auto'>
-          {advisors.map((m, i) => (
-            <div
-              key={i}
-              className='bg-white rounded-xl p-8 md:p-10 shadow-sm border border-gray-200'
-            >
-              {/* Circular Image */}
-              <div className='flex justify-center mb-6'>
-                <div className='relative w-40 h-40 md:w-48 md:h-48'>
-                  <img
-                    src={m.imageUrl}
-                    alt={m.name}
-                    loading='lazy'
-                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
-                  />
-                </div>
-              </div>
-
-              {/* Name & Credentials */}
-              <div className='text-center mb-4'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-1'>
-                  {m.name}
-                </h3>
-                {m.credentials && (
-                  <p className='text-sm md:text-base text-gray-600 font-medium'>
-                    {m.credentials}
-                  </p>
-                )}
-              </div>
-
-              {/* Role & Organization */}
-              <div className='text-center mb-6'>
-                <p className='text-base md:text-lg font-semibold text-gray-900'>
-                  {m.role}
-                </p>
-                {m.organization && (
-                  <p className='text-sm md:text-base text-gray-600 mt-1'>
-                    {m.organization}
-                  </p>
-                )}
-              </div>
-
-              {/* Description */}
-              <p className='text-sm md:text-base text-gray-600 text-center leading-relaxed mb-6'>
-                {m.description}
-              </p>
-
-              {/* Social Links */}
-              <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
-                {m.github && (
-                  <a
-                    href={m.github}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
-                    aria-label='GitHub'
-                  >
-                    <FaGithub className='w-5 h-5' />
-                  </a>
-                )}
-                {m.linkedin && (
-                  <a
-                    href={m.linkedin}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
-                    aria-label='LinkedIn'
-                  >
-                    <FaLinkedin className='w-5 h-5' />
-                  </a>
-                )}
-                {m.twitter && (
-                  <a
-                    href={m.twitter}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-sky-500 hover:text-white transition-colors'
-                    aria-label='Twitter'
-                  >
-                    <FaTwitter className='w-5 h-5' />
-                  </a>
-                )}
-                {m.email && (
-                  <a
-                    href={m.email}
-                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-colors'
-                    aria-label='Email'
-                  >
-                    <FaEnvelope className='w-5 h-5' />
-                  </a>
-                )}
-                {m.scholar && (
-                  <a
-                    href={m.scholar}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-colors'
-                    aria-label='Google Scholar'
-                  >
-                    <FaGraduationCap className='w-5 h-5' />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+          </button>
         </div>
       </div>
 
       {/* MEDICAL TEAM SECTION */}
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-        <div className='text-center mb-12'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
-            Medical Team
-          </h2>
-          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-          <p className='text-sm md:text-base text-gray-600'>
-            Clinical expertise guiding our healthcare solutions
-          </p>
+      {(activeFilter === "all" || activeFilter === "medical") && (
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Medical Team
+            </h2>
+            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
+            <p className="text-sm md:text-base text-gray-600">
+              Clinical expertise guiding our healthcare solutions
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {medicalTeam.map((m, i) => (
+              <div key={i}>{renderMember(m, true)}</div>
+            ))}
+          </div>
         </div>
-
-        <div className='max-w-3xl mx-auto'>
-          {medicalTeam.map((m, i) => (
-            <div
-              key={i}
-              className='bg-white rounded-xl p-8 md:p-10 shadow-sm border border-gray-200'
-            >
-              {/* Circular Image */}
-              <div className='flex justify-center mb-6'>
-                <div className='relative w-40 h-40 md:w-48 md:h-48'>
-                  <img
-                    src={m.imageUrl}
-                    alt={m.name}
-                    loading='lazy'
-                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
-                  />
-                </div>
-              </div>
-
-              {/* Name & Credentials */}
-              <div className='text-center mb-4'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-1'>
-                  {m.name}
-                </h3>
-                {m.credentials && (
-                  <p className='text-sm md:text-base text-gray-600 font-medium'>
-                    {m.credentials}
-                  </p>
-                )}
-              </div>
-
-              {/* Role & Organization */}
-              <div className='text-center mb-6'>
-                <p className='text-base md:text-lg font-semibold text-gray-900'>
-                  {m.role}
-                </p>
-                {m.organization && (
-                  <p className='text-sm md:text-base text-gray-600 mt-1'>
-                    {m.organization}
-                  </p>
-                )}
-              </div>
-
-              {/* Description */}
-              <p className='text-sm md:text-base text-gray-600 text-center leading-relaxed mb-6'>
-                {m.description}
-              </p>
-
-              {/* Social Links */}
-              {(m.github || m.linkedin) && (
-                <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
-                  {m.github && (
-                    <a
-                      href={m.github}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
-                      aria-label='GitHub'
-                    >
-                      <FaGithub className='w-5 h-5' />
-                    </a>
-                  )}
-                  {m.linkedin && (
-                    <a
-                      href={m.linkedin}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
-                      aria-label='LinkedIn'
-                    >
-                      <FaLinkedin className='w-5 h-5' />
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
 
       {/* TECHNICAL TEAM SECTION */}
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-        <div className='text-center mb-12'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
-            Technical Team
-          </h2>
-          <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-          <p className='text-sm md:text-base text-gray-600'>
-            Engineering excellence driving healthcare AI innovation
-          </p>
+      {(activeFilter === "all" || activeFilter === "technical") && (
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Technical Team
+            </h2>
+            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
+            <p className="text-sm md:text-base text-gray-600">
+              Engineering excellence driving healthcare AI innovation
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {technicalTeam.map((m, i) => (
+              <div key={i}>{renderMember(m, false)}</div>
+            ))}
+          </div>
         </div>
+      )}
 
-        <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
-          {technicalTeam.map((m, i) => (
-            <div
-              key={i}
-              className='bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200'
-            >
-              {/* Circular Image */}
-              <div className='flex justify-center mb-5'>
-                <div className='relative w-32 h-32 md:w-36 md:h-36'>
-                  <img
-                    src={m.imageUrl}
-                    alt={m.name}
-                    loading='lazy'
-                    className='w-full h-full rounded-full object-cover border-4 border-gray-100'
-                  />
-                </div>
-              </div>
+      {/* ADVISORS SECTION */}
+      {(activeFilter === "all" || activeFilter === "advisors") && (
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Advisors
+            </h2>
+            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
+            <p className="text-sm md:text-base text-gray-600">
+              World-class technical guidance shaping our AI innovation
+            </p>
+          </div>
 
-              {/* Name & Credentials */}
-              <div className='text-center mb-3'>
-                <h3 className='text-xl md:text-2xl font-bold text-gray-900 mb-1'>
-                  {m.name}
-                </h3>
-                {m.credentials && (
-                  <p className='text-sm text-gray-600 font-medium'>
-                    {m.credentials}
-                  </p>
-                )}
-              </div>
-
-              {/* Role & Organization */}
-              <div className='text-center mb-4'>
-                <p className='text-sm md:text-base font-semibold text-gray-900'>
-                  {m.role}
-                </p>
-                {m.organization && (
-                  <p className='text-xs md:text-sm text-gray-600 mt-1'>
-                    {m.organization}
-                  </p>
-                )}
-              </div>
-
-              {/* Description */}
-              <p className='text-xs md:text-sm text-gray-600 text-center leading-relaxed mb-5'>
-                {m.description}
-              </p>
-
-              {/* Social Links */}
-              {(m.github || m.linkedin) && (
-                <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
-                  {m.github && (
-                    <a
-                      href={m.github}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors'
-                      aria-label='GitHub'
-                    >
-                      <FaGithub className='w-4 h-4' />
-                    </a>
-                  )}
-                  {m.linkedin && (
-                    <a
-                      href={m.linkedin}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors'
-                      aria-label='LinkedIn'
-                    >
-                      <FaLinkedin className='w-4 h-4' />
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
+          <div className="max-w-3xl mx-auto">
+            {advisors.map((m, i) => (
+              <div key={i}>{renderMember(m, true)}</div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <Footer />
     </section>

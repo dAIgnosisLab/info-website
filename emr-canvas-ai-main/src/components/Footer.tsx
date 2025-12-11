@@ -120,10 +120,10 @@ export default function Footer() {
                   Phone
                 </span>
                 <a
-                  href='tel:+9779703895325'
+                  href='tel:+9779745956296'
                   className='text-green-600 hover:text-green-700 transition-colors duration-200'
                 >
-                  +977-9703895325
+                  +977-9745956296
                 </a>
               </li>
               <li className='text-gray-600 text-sm md:text-base'>

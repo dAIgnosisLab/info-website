@@ -48,7 +48,8 @@ export default function ContactSection() {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Failed to send message. Please try again or contact us directly.",
+        message:
+          "Failed to send message. Please try again or contact us directly.",
       });
       console.error("EmailJS Error:", error);
     } finally {
@@ -70,14 +71,14 @@ export default function ContactSection() {
       icon: <FaWhatsapp />,
       title: "WhatsApp",
       subtitle: "Chat with us instantly",
-      value: "+977-9703895325",
+      value: "+977-9745956296",
       color: "green",
     },
     {
       icon: <FaPhone />,
       title: "Phone",
       subtitle: "Call us anytime",
-      value: "+977-9703895325",
+      value: "+977-9745956296",
       color: "green",
     },
     {
@@ -181,7 +182,10 @@ export default function ContactSection() {
               Send us a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className='space-y-6'>
+            <form
+              onSubmit={handleSubmit}
+              className='space-y-6'
+            >
               <div>
                 <label
                   htmlFor='name'

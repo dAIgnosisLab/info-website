@@ -93,9 +93,9 @@ const HeroSection = () => {
             <div className='grid grid-cols-3 gap-6 pt-8 border-t border-gray-200'>
               <div>
                 <div className='text-3xl md:text-4xl font-bold text-green-600'>
-                  2+
+                  1
                 </div>
-                <div className='text-sm text-gray-600 mt-1'>AI Products</div>
+                <div className='text-sm text-gray-600 mt-1'>AI Product</div>
               </div>
               <div>
                 <div className='text-3xl md:text-4xl font-bold text-green-600'>
@@ -133,13 +133,6 @@ const HeroSection = () => {
                   alt='Healthcare AI Innovation'
                   className='w-full h-full object-contain'
                 />
-              </div>
-
-              {/* Floating badge */}
-              <div className='absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-lg border border-gray-100'>
-                <span className='text-sm font-semibold text-gray-900'>
-                  🚀 Powered by Advanced AI
-                </span>
               </div>
             </div>
           </motion.div>
