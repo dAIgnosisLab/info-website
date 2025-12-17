@@ -8,7 +8,7 @@ const advisors = [
     name: "Sunil Aryal",
     credentials: "PhD, FHEA, MIEEE, MACS",
     role: "AI/ML Technical Advisor",
-    organization: "Deakin University",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Dr Sunil Aryal is an Associate Professor of Data Science at the Deakin University School of Information Technology. His research interests are in the areas of Artificial Intelligence (AI), Machine Learning (ML) and Data Mining (DM). He is particularly interested in the application of AI/ML/DM models to solve real-world problems in applications such as Defence, National Intelligence, Engineering, Manufacturing, Healthcare and Education. He co-leads the Machine Learning for Decision Support (MLDS) Research Group at Deakin University. He has published over 49 papers in top-tier international venues in AI, ML and DM. He is a named investigator in research grants with over AUD 4 million in funding. His research is supported by US and Australia Defence Agencies, Australian Office of National Intelligence, and multiple international organizations.",
     imageUrl: "/sunil_aryal.jpg",
@@ -22,15 +22,26 @@ const advisors = [
 
 const medicalTeam = [
   {
-    name: "Prakash Kandel",
+    name: "Dr. Prakash Kandel",
     credentials: "MD/MBA",
     role: "Clinical & Business Lead",
-    organization: "CAMS",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Prakash Kandel is a US board-certified physician and an accomplished physician leader dedicated to advancing clinical excellence, patient experience, safety, and quality of care through clinical redesign. With over two decades of experience, he has served in many leadership roles, including most recently as Vice President of Medical Staff at L&M Hospital / Yale New Haven Health. His extensive experience spans diverse communities—from refugee camps and rural clinics in East Africa to hospitals and nursing homes across the U.S. Dr. Kandel previously contributed to global health efforts by working with the World Health Organization on immunization preventable diseases in Nepal. He champions curiosity, lifelong learning, and exploring innovative approaches to fundamentally improve healthcare delivery.",
     imageUrl: "/prakash_kandel.jpg",
     github: "",
     linkedin: "https://www.linkedin.com/in/prakandel/",
+  },
+  {
+    name: "Dr. Prabhat Adhikari",
+    credentials: "MD (Infectious Diseases, Critical Care)",
+    role: "Physician Partner",
+    organization: "AI Lab Pvt Ltd",
+    description:
+      "Dr. Prabhat Adhikari is an accomplished infectious disease and ICU specialist with over 15 years of medical expertise. He is an American Board-certified physician and philanthropist, founder of ASK Foundation Nepal, providing telemedicine services to underserved rural communities. As founder & CEO of Center for American Medical Specialists (CAMS) and Medical/Scientific Advisor at Novala Biotech, Dr. Adhikari combines clinical excellence with healthcare innovation. His extensive experience includes Critical Care Fellowship at UTHSC, Infectious Disease Fellowship at UCLA, and consulting roles across Nepal, Israel, and the USA.",
+    imageUrl: "/prabhat_adhikari.jpeg",
+    github: "",
+    linkedin: "https://www.linkedin.com/in/prabhat-adhikari/",
   },
 ];
 
@@ -39,7 +50,7 @@ const technicalTeam = [
     name: "Jeevan Neupane",
     credentials: "",
     role: "Engineering/Technical Lead",
-    organization: "",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Jeevan Neupane is a fourth-year Computer Engineering student at IOE, Pulchowk Campus who believes technology should solve real problems. He serves as the Engineering and Technical Lead at dAIgnosisLab, where he oversees the architecture of AI-powered healthcare solutions. He is also a Research Intern at NAAMII working on X-ray to 3D bone reconstruction and a Software Engineering Intern at IOE developing examination systems. With experience in full-stack development and machine learning, Jeevan focuses on building practical, impactful tools for healthcare.",
     imageUrl: "/jeevan.jpg",
@@ -50,7 +61,7 @@ const technicalTeam = [
     name: "Apurba Koirala",
     credentials: "",
     role: "AI/ML Research",
-    organization: "",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Apurba Koirala is a Computer Science and Engineering student at VIT, Vellore, specializing in AI, machine learning, and data-driven systems. He has interned at Grande International Hospital, Labmentix EdTech, and WebTech, working on AI research, predictive modeling, and full-stack development. His work spans healthcare AI, federated learning, and cloud-based applications, with multiple research manuscripts and a published book chapter to his name.",
     imageUrl: "/apurva.jpg",
@@ -61,7 +72,7 @@ const technicalTeam = [
     name: "Bipin Bashyal",
     credentials: "",
     role: "Backend Engineer",
-    organization: "",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Bipin Bashyal is a Computer Engineering student at IOE, Pulchowk Campus, specializing in AI-powered healthcare technology. He develops and implements advanced AI and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures that healthcare AI can understand medical terminology and clinical context with high precision, enabling reliable and effective documentation workflows.",
     imageUrl: "/bipin.jpg",
@@ -72,7 +83,7 @@ const technicalTeam = [
     name: "Samyam Budhathoki",
     credentials: "",
     role: "Backend Engineer",
-    organization: "",
+    organization: "AI Lab Pvt Ltd",
     description:
       "Samyam Budhathoki is a Computer Science and Engineering student at VIT, Vellore, specializing in AI and machine learning for healthcare innovation. He focuses on building intelligent systems that enhance the accuracy and efficiency of medical documentation, developing models capable of handling complex clinical scenarios, multilingual data, and diverse healthcare environments. His work emphasizes secure, compliant, and scalable AI solutions designed to support real-world medical workflows.",
     imageUrl: "/samyam.jpg",
@@ -94,7 +105,7 @@ export default function TeamPage() {
     <div
       className={`bg-white rounded-xl ${
         isLarge ? "p-8 md:p-10" : "p-6 md:p-8"
-      } shadow-sm border border-gray-200`}
+      } shadow-sm border border-gray-200 h-full flex flex-col`}
     >
       {/* Circular Image */}
       <div className="flex justify-center mb-6">
@@ -306,9 +317,9 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {medicalTeam.map((m, i) => (
-              <div key={i}>{renderMember(m, true)}</div>
+              <div key={i}>{renderMember(m, false)}</div>
             ))}
           </div>
         </div>

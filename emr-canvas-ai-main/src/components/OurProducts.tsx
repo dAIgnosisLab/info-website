@@ -1,4 +1,4 @@
-import { FaNotesMedical } from "react-icons/fa";
+import { FaNotesMedical, FaCube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import clsx from "clsx";
@@ -12,6 +12,7 @@ interface Product {
   status: ProductStatus;
   route?: string;
   accent?: string;
+  features: string[];
 }
 
 const products: Product[] = [
@@ -23,6 +24,25 @@ const products: Product[] = [
     status: "Available",
     route: "/emr-generator",
     accent: "from-green-500 to-emerald-600",
+    features: [
+      "Real-time voice-to-text transcription",
+      "AI-powered clinical data extraction",
+      "Structured EMR output ready for use"
+    ],
+  },
+  {
+    icon: <FaCube />,
+    title: "RadiVision 3D",
+    description:
+      "Advanced X-ray to 3D reconstruction technology that transforms 2D radiographic images into detailed three-dimensional models for enhanced diagnostic accuracy and treatment planning.",
+    status: "Beta",
+    route: "/radivision-3d",
+    accent: "from-blue-500 to-indigo-600",
+    features: [
+      "Biplanar X-ray reconstruction",
+      "Real-time 3D model generation",
+      "Enhanced diagnostic accuracy"
+    ],
   },
 ];
 
@@ -35,7 +55,7 @@ const statusStyles: Record<ProductStatus, string> = {
 export default function OurProducts() {
   const navigate = useNavigate();
   const handleClick = (p: Product) => {
-    if (p.route && p.status === "Available") navigate(p.route);
+    if (p.route && (p.status === "Available" || p.status === "Beta")) navigate(p.route);
   };
 
   return (
@@ -59,17 +79,17 @@ export default function OurProducts() {
           className='text-center mb-16 md:mb-20'
         >
           <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4'>
-            Our <span className='text-green-600'>Product</span>
+            Our <span className='text-green-600'>Products</span>
           </h2>
           <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
           <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-            Intelligent AI solution transforming healthcare documentation and
+            Intelligent AI solutions transforming healthcare documentation, medical imaging, and
             improving patient outcomes.
           </p>
         </motion.div>
 
-        {/* Product Card - Centered and Highlighted */}
-        <div className='flex justify-center'>
+        {/* Product Cards */}
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
           {products.map((product, i) => (
             <motion.article
               key={product.title + i}
@@ -118,34 +138,26 @@ export default function OurProducts() {
 
                 {/* Features List */}
                 <div className='mb-8 space-y-3'>
-                  <div className='flex items-center gap-3 text-gray-700'>
-                    <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>
-                      Real-time voice-to-text transcription
-                    </span>
-                  </div>
-                  <div className='flex items-center gap-3 text-gray-700'>
-                    <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>
-                      AI-powered clinical data extraction
-                    </span>
-                  </div>
-                  <div className='flex items-center gap-3 text-gray-700'>
-                    <div className='w-2 h-2 bg-green-600 rounded-full'></div>
-                    <span className='text-sm md:text-base'>
-                      Structured EMR output ready for use
-                    </span>
-                  </div>
+                  {product.features.map((feature, index) => (
+                    <div key={index} className='flex items-center gap-3 text-gray-700'>
+                      <div className='w-2 h-2 bg-green-600 rounded-full'></div>
+                      <span className='text-sm md:text-base'>
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Button */}
                 <button
                   onClick={() => handleClick(product)}
-                  disabled={!product.route || product.status !== "Available"}
+                  disabled={!product.route || product.status === "Coming Soon"}
                   className={clsx(
                     "w-full px-8 py-4 rounded-xl font-semibold text-lg shadow-md",
                     product.status === "Available"
                       ? "bg-green-600 text-white hover:bg-green-700 hover:shadow-lg"
+                      : product.status === "Beta"
+                      ? "bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg"
                       : "bg-gray-100 text-gray-400 cursor-not-allowed",
                     "transition-all duration-300"
                   )}
@@ -153,7 +165,7 @@ export default function OurProducts() {
                   {product.status === "Available"
                     ? "Explore Laisten →"
                     : product.status === "Beta"
-                    ? "Request Access"
+                    ? "Try Beta →"
                     : "Coming Soon"}
                 </button>
 

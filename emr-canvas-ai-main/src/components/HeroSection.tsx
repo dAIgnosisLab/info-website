@@ -93,9 +93,9 @@ const HeroSection = () => {
             <div className='grid grid-cols-3 gap-6 pt-8 border-t border-gray-200'>
               <div>
                 <div className='text-3xl md:text-4xl font-bold text-green-600'>
-                  1
+                  2
                 </div>
-                <div className='text-sm text-gray-600 mt-1'>AI Product</div>
+                <div className='text-sm text-gray-600 mt-1'>AI Products</div>
               </div>
               <div>
                 <div className='text-3xl md:text-4xl font-bold text-green-600'>

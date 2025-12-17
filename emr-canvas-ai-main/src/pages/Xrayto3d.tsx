@@ -85,24 +85,27 @@ export default function XrayTo3DPage() {
       {/* Hero */}
       <div className='pt-32 md:pt-40 pb-16 md:pb-20 px-4'>
         <div className='max-w-5xl mx-auto text-center'>
-          <span className='inline-block px-4 py-1.5 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold tracking-wide mb-6'>
-            Available Now
+          <span className='inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold tracking-wide mb-6'>
+            Beta
           </span>
           <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6'>
             <span className='text-gray-900'>AI‑Powered </span>
-            <span className='text-pink-600'>Biplanar X‑Ray → 3D</span>
+            <span className='text-green-600'>Biplanar X‑Ray → 3D</span>
           </h1>
           <p className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
             Upload two orthogonal clinical X‑Ray views; the system infers depth and reconstructs an interactive 3D volume to enhance spatial interpretation.
           </p>
 
-          <div className='mt-10 bg-gradient-to-br from-pink-50 to-rose-100 rounded-3xl p-8 md:p-12 shadow-md'>
-            <div className='aspect-video bg-white rounded-2xl flex items-center justify-center border border-pink-200'>
-              <div className='text-center'>
-                <FaCube className='text-7xl md:text-8xl text-pink-600 mx-auto mb-4' />
-                <p className='text-xl font-semibold text-gray-900'>Reconstruction Preview</p>
-                <p className='text-sm text-gray-500 mt-1'>Interactive viewer coming soon.</p>
-              </div>
+          <div className='mt-10 bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-8 md:p-12 shadow-md'>
+            <div className='aspect-video bg-white rounded-2xl overflow-hidden border border-green-200'>
+              <iframe
+                className='w-full h-full'
+                src='https://www.youtube.com/embed/EzRBS_2HfiQ?autoplay=1&mute=1&loop=1&playlist=EzRBS_2HfiQ'
+                title='RadiVision 3D Demo'
+                frameBorder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
@@ -112,7 +115,7 @@ export default function XrayTo3DPage() {
       <div className='py-16 md:py-20 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-4'>
           <h2 className='text-4xl md:text-5xl font-bold text-center mb-12'>
-            Workflow <span className='text-pink-600'>Pipeline</span>
+            Workflow <span className='text-green-600'>Pipeline</span>
           </h2>
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
             {workflow.map((step, i) => (
@@ -120,7 +123,7 @@ export default function XrayTo3DPage() {
                 key={i}
                 className='bg-white rounded-2xl p-6 md:p-7 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300'
               >
-                <div className='w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 text-2xl mb-5'>
+                <div className='w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-5'>
                   {step.icon}
                 </div>
                 <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2'>{step.title}</h3>
@@ -135,18 +138,18 @@ export default function XrayTo3DPage() {
       <div className='py-16 md:py-20 bg-white'>
         <div className='max-w-6xl mx-auto px-4'>
           <h2 className='text-4xl md:text-5xl font-bold text-center mb-12'>
-            Key <span className='text-pink-600'>Benefits</span>
+            Key <span className='text-green-600'>Benefits</span>
           </h2>
           <div className='grid md:grid-cols-3 gap-8'>
             {benefits.map((b, i) => (
               <div
                 key={i}
-                className='text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-pink-200 hover:shadow-md transition-all duration-300'
+                className='text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-green-200 hover:shadow-md transition-all duration-300'
               >
-                <div className='w-20 h-20 bg-pink-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-5'>
+                <div className='w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-5'>
                   {b.icon}
                 </div>
-                <div className='text-4xl font-bold text-pink-600 mb-2'>{b.stat}</div>
+                <div className='text-4xl font-bold text-green-600 mb-2'>{b.stat}</div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-2'>{b.title}</h3>
                 <p className='text-sm md:text-base text-gray-600 leading-relaxed'>{b.description}</p>
               </div>
@@ -156,15 +159,15 @@ export default function XrayTo3DPage() {
       </div>
 
       {/* CTA */}
-      <div className='py-16 md:py-20 bg-pink-600'>
+      <div className='py-16 md:py-20 bg-green-600'>
         <div className='max-w-4xl mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>Explore 3D Imaging</h2>
-          <p className='text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto'>
+          <p className='text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto'>
             Adopt AI‑assisted volumetric reconstruction to enhance precision and confidence.
           </p>
           <button
             onClick={handleRequestDemo}
-            className='px-9 py-4 bg-white text-pink-600 text-base md:text-lg font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300'
+            className='px-9 py-4 bg-white text-green-600 text-base md:text-lg font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300'
           >
             Request a Demo
           </button>

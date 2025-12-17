@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
 import EmrGeneratorPage from "./pages/EmrGeneratorPage";
 import FloatingPromoButton from "./components/FloatingPromoButton";
+import XrayTo3DPage from "./pages/Xrayto3d";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,11 @@ const App = () => (
           <Route
             path='/emr-generator'
             element={<EmrGeneratorPage />}
+          />
+
+          <Route
+            path='/radivision-3d'
+            element={<XrayTo3DPage />}
           />
           <Route
             path='*'
