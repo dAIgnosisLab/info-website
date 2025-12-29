@@ -1,4 +1,4 @@
-import { FaNotesMedical, FaCube } from "react-icons/fa";
+import { FaNotesMedical, FaCube, FaBrain } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import clsx from "clsx";
@@ -44,6 +44,19 @@ const products: Product[] = [
       "Enhanced diagnostic accuracy"
     ],
   },
+  {
+    icon: <FaBrain />,
+    title: "NeuroSpell BCI",
+    description:
+      "Brain-Computer Interface technology enabling intubated ICU patients to communicate through thought-controlled spelling. Revolutionary dry-EEG system for rapid patient-caregiver interaction.",
+    status: "Coming Soon",
+    accent: "from-purple-500 to-violet-600",
+    features: [
+      "Dry-EEG headset with <5min setup",
+      "Motor-imagery based communication",
+      "ICU-optimized signal processing"
+    ],
+  },
 ];
 
 const statusStyles: Record<ProductStatus, string> = {
@@ -83,13 +96,12 @@ export default function OurProducts() {
           </h2>
           <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
           <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-            Intelligent AI solutions transforming healthcare documentation, medical imaging, and
-            improving patient outcomes.
+            Intelligent AI solutions transforming healthcare documentation, medical imaging, brain-computer interfaces, and improving patient outcomes.
           </p>
         </motion.div>
 
         {/* Product Cards */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {products.map((product, i) => (
             <motion.article
               key={product.title + i}
