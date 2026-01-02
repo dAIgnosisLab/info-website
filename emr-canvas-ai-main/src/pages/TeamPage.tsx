@@ -1,4 +1,10 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaGraduationCap } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaEnvelope,
+  FaGraduationCap,
+} from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
@@ -49,46 +55,25 @@ const technicalTeam = [
   {
     name: "Jeevan Neupane",
     credentials: "",
-    role: "Engineering/Technical Lead",
+    role: "Co-Founder & CTO",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Jeevan Neupane is a fourth-year Computer Engineering student at IOE, Pulchowk Campus who believes technology should solve real problems. He serves as the Engineering and Technical Lead at dAIgnosisLab, where he oversees the architecture of AI-powered healthcare solutions. He is also a Research Intern at NAAMII working on X-ray to 3D bone reconstruction and a Software Engineering Intern at IOE developing examination systems. With experience in full-stack development and machine learning, Jeevan focuses on building practical, impactful tools for healthcare.",
+      "Jeevan Neupane is a visionary technologist and co-founder who leads the technical strategy and product development at AI Lab. With expertise in full-stack development, machine learning, and healthcare AI systems, he focuses on building scalable solutions that transform medical practice. His leadership drives innovation in AI-powered healthcare technologies, ensuring robust architecture and seamless user experiences across all product offerings.",
     imageUrl: "/jeevan.jpg",
     github: "https://github.com/jeevan-neupane",
     linkedin: "https://www.linkedin.com/in/jeevan-neupane/",
   },
-  {
-    name: "Apurba Koirala",
-    credentials: "",
-    role: "AI/ML Research",
-    organization: "AI Lab Pvt Ltd",
-    description:
-      "Apurba Koirala is a Computer Science and Engineering student at VIT, Vellore, specializing in AI, machine learning, and data-driven systems. He has interned at Grande International Hospital, Labmentix EdTech, and WebTech, working on AI research, predictive modeling, and full-stack development. His work spans healthcare AI, federated learning, and cloud-based applications, with multiple research manuscripts and a published book chapter to his name.",
-    imageUrl: "/apurva.jpg",
-    github: "https://github.com/apurbaaaa",
-    linkedin: "https://www.linkedin.com/in/apurbak/",
-  },
+
   {
     name: "Bipin Bashyal",
     credentials: "",
-    role: "Backend Engineer",
+    role: "Co-Founder & Lead Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
       "Bipin Bashyal is a Computer Engineering student at IOE, Pulchowk Campus, specializing in AI-powered healthcare technology. He develops and implements advanced AI and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures that healthcare AI can understand medical terminology and clinical context with high precision, enabling reliable and effective documentation workflows.",
     imageUrl: "/bipin.jpg",
     github: "https://github.com/bipinbashyal",
     linkedin: "https://www.linkedin.com/in/bipin-bashyal-896239231/",
-  },
-  {
-    name: "Samyam Budhathoki",
-    credentials: "",
-    role: "Backend Engineer",
-    organization: "AI Lab Pvt Ltd",
-    description:
-      "Samyam Budhathoki is a Computer Science and Engineering student at VIT, Vellore, specializing in AI and machine learning for healthcare innovation. He focuses on building intelligent systems that enhance the accuracy and efficiency of medical documentation, developing models capable of handling complex clinical scenarios, multilingual data, and diverse healthcare environments. His work emphasizes secure, compliant, and scalable AI solutions designed to support real-world medical workflows.",
-    imageUrl: "/samyam.jpg",
-    github: "https://github.com/Samyam30",
-    linkedin: "https://www.linkedin.com/in/samyam-budhathoki-b55160322/",
   },
 ];
 
@@ -108,7 +93,7 @@ export default function TeamPage() {
       } shadow-sm border border-gray-200 h-full flex flex-col`}
     >
       {/* Circular Image */}
-      <div className="flex justify-center mb-6">
+      <div className='flex justify-center mb-6'>
         <div
           className={`relative ${
             isLarge ? "w-40 h-40 md:w-48 md:h-48" : "w-32 h-32 md:w-36 md:h-36"
@@ -117,14 +102,14 @@ export default function TeamPage() {
           <img
             src={m.imageUrl}
             alt={m.name}
-            loading="lazy"
-            className="w-full h-full rounded-full object-cover border-4 border-gray-100"
+            loading='lazy'
+            className='w-full h-full rounded-full object-cover border-4 border-gray-100'
           />
         </div>
       </div>
 
       {/* Name & Credentials */}
-      <div className="text-center mb-4">
+      <div className='text-center mb-4'>
         <h3
           className={`${
             isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
@@ -144,7 +129,7 @@ export default function TeamPage() {
       </div>
 
       {/* Role & Organization */}
-      <div className="text-center mb-6">
+      <div className='text-center mb-6'>
         <p
           className={`${
             isLarge ? "text-base md:text-lg" : "text-sm md:text-base"
@@ -174,16 +159,16 @@ export default function TeamPage() {
 
       {/* Social Links */}
       {(m.github || m.linkedin || m.twitter || m.email || m.scholar) && (
-        <div className="flex justify-center gap-3 pt-4 border-t border-gray-100">
+        <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
           {m.github && (
             <a
               href={m.github}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               className={`${
                 isLarge ? "w-10 h-10" : "w-9 h-9"
               } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors`}
-              aria-label="GitHub"
+              aria-label='GitHub'
             >
               <FaGithub className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
             </a>
@@ -191,12 +176,12 @@ export default function TeamPage() {
           {m.linkedin && (
             <a
               href={m.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               className={`${
                 isLarge ? "w-10 h-10" : "w-9 h-9"
               } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors`}
-              aria-label="LinkedIn"
+              aria-label='LinkedIn'
             >
               <FaLinkedin className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
             </a>
@@ -204,12 +189,12 @@ export default function TeamPage() {
           {m.twitter && (
             <a
               href={m.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               className={`${
                 isLarge ? "w-10 h-10" : "w-9 h-9"
               } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-sky-500 hover:text-white transition-colors`}
-              aria-label="Twitter"
+              aria-label='Twitter'
             >
               <FaTwitter className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
             </a>
@@ -220,7 +205,7 @@ export default function TeamPage() {
               className={`${
                 isLarge ? "w-10 h-10" : "w-9 h-9"
               } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-colors`}
-              aria-label="Email"
+              aria-label='Email'
             >
               <FaEnvelope className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
             </a>
@@ -228,12 +213,12 @@ export default function TeamPage() {
           {m.scholar && (
             <a
               href={m.scholar}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
               className={`${
                 isLarge ? "w-10 h-10" : "w-9 h-9"
               } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-colors`}
-              aria-label="Google Scholar"
+              aria-label='Google Scholar'
             >
               <FaGraduationCap className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
             </a>
@@ -244,23 +229,24 @@ export default function TeamPage() {
   );
 
   return (
-    <section className="relative min-h-screen bg-gray-50">
+    <section className='relative min-h-screen bg-gray-50'>
       <Navigation />
 
       {/* Main Heading */}
-      <div className="text-center pt-32 md:pt-40 pb-12 md:pb-16 px-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-          <span className="text-gray-900">Meet Our </span>
-          <span className="text-green-600">Team</span>
+      <div className='text-center pt-32 md:pt-40 pb-12 md:pb-16 px-4'>
+        <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
+          <span className='text-gray-900'>Meet Our </span>
+          <span className='text-green-600'>Team</span>
         </h1>
-        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-          Passionate experts dedicated to transforming healthcare through AI innovation
+        <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
+          Passionate experts dedicated to transforming healthcare through AI
+          innovation
         </p>
       </div>
 
       {/* Filter Toggle */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="flex flex-wrap justify-center gap-3">
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-12'>
+        <div className='flex flex-wrap justify-center gap-3'>
           <button
             onClick={() => setActiveFilter("all")}
             className={`px-6 py-2.5 rounded-full font-medium transition-all ${
@@ -306,18 +292,18 @@ export default function TeamPage() {
 
       {/* MEDICAL TEAM SECTION */}
       {(activeFilter === "all" || activeFilter === "medical") && (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
               Medical Team
             </h2>
-            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
-            <p className="text-sm md:text-base text-gray-600">
+            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+            <p className='text-sm md:text-base text-gray-600'>
               Clinical expertise guiding our healthcare solutions
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
             {medicalTeam.map((m, i) => (
               <div key={i}>{renderMember(m, false)}</div>
             ))}
@@ -327,18 +313,18 @@ export default function TeamPage() {
 
       {/* TECHNICAL TEAM SECTION */}
       {(activeFilter === "all" || activeFilter === "technical") && (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
               Technical Team
             </h2>
-            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
-            <p className="text-sm md:text-base text-gray-600">
+            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+            <p className='text-sm md:text-base text-gray-600'>
               Engineering excellence driving healthcare AI innovation
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
             {technicalTeam.map((m, i) => (
               <div key={i}>{renderMember(m, false)}</div>
             ))}
@@ -348,18 +334,18 @@ export default function TeamPage() {
 
       {/* ADVISORS SECTION */}
       {(activeFilter === "all" || activeFilter === "advisors") && (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
               Advisors
             </h2>
-            <div className="w-16 h-1 bg-green-600 mx-auto mb-3"></div>
-            <p className="text-sm md:text-base text-gray-600">
+            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
+            <p className='text-sm md:text-base text-gray-600'>
               World-class technical guidance shaping our AI innovation
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className='max-w-3xl mx-auto'>
             {advisors.map((m, i) => (
               <div key={i}>{renderMember(m, true)}</div>
             ))}
