@@ -75,6 +75,17 @@ const technicalTeam = [
     github: "https://github.com/bipinbashyal",
     linkedin: "https://www.linkedin.com/in/bipin-bashyal-896239231/",
   },
+  {
+    name: "Janardan Bhetwal",
+    credentials: "",
+    role: "AI Researcher",
+    organization: "IOE, Pulchowk Campus",
+    description:
+      "I am a Computer Engineering student at IOE, Pulchowk Campus, with a strong interest in artificial intelligence and machine learning. I am keen on exploring advanced AI/ML concepts, developing intelligent systems, and contributing to research-driven innovations. My academic focus and curiosity drive me to understand both the theoretical foundations and practical applications of AI, with the goal of creating impactful, data-driven solutions.",
+    imageUrl: "/Janardan_Bhetwal.jpeg",
+    github: "",
+    linkedin: "",
+  },
 ];
 
 type TeamFilter = "all" | "medical" | "technical" | "advisors";
