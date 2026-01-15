@@ -30,7 +30,7 @@ const medicalTeam = [
   {
     name: "Dr. Prakash Kandel",
     credentials: "MD/MBA",
-    role: "Clinical & Business Lead",
+    role: "Co-Founder & Clinical Lead",
     organization: "AI Lab Pvt Ltd",
     description:
       "Prakash Kandel is a US board-certified physician and an accomplished physician leader dedicated to advancing clinical excellence, patient experience, safety, and quality of care through clinical redesign. With over two decades of experience, he has served in many leadership roles, including most recently as Vice President of Medical Staff at L&M Hospital / Yale New Haven Health. His extensive experience spans diverse communities—from refugee camps and rural clinics in East Africa to hospitals and nursing homes across the U.S. Dr. Kandel previously contributed to global health efforts by working with the World Health Organization on immunization preventable diseases in Nepal. He champions curiosity, lifelong learning, and exploring innovative approaches to fundamentally improve healthcare delivery.",
@@ -58,7 +58,7 @@ const technicalTeam = [
     role: "Co-Founder & CTO",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Jeevan Neupane is a visionary technologist and co-founder who leads the technical strategy and product development at AI Lab. With expertise in full-stack development, machine learning, and healthcare AI systems, he focuses on building scalable solutions that transform medical practice. His leadership drives innovation in AI-powered healthcare technologies, ensuring robust architecture and seamless user experiences across all product offerings.",
+      "Jeevan Neupane is a final year Computer Engineering student at IOE, Pulchowk Campus and co-founder who leads the technical strategy and product development at AI Lab. With expertise in full-stack development, machine learning, and healthcare AI systems, he focuses on building scalable solutions that transform medical practice. His leadership drives innovation in AI-powered healthcare technologies, ensuring robust architecture and seamless user experiences across all product offerings.",
     imageUrl: "/jeevan.jpg",
     github: "https://github.com/jeevan-neupane",
     linkedin: "https://www.linkedin.com/in/jeevan-neupane/",
@@ -70,21 +70,44 @@ const technicalTeam = [
     role: "Co-Founder & Lead Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Bipin Bashyal is a Computer Engineering student at IOE, Pulchowk Campus, specializing in AI-powered healthcare technology. He develops and implements advanced AI and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures that healthcare AI can understand medical terminology and clinical context with high precision, enabling reliable and effective documentation workflows.",
+      "Bipin Bashyal is a final year Computer Engineering student at IOE, Pulchowk Campus, specializing in backend engineering and healthcare technology. He develops and implements robust backend systems and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures scalable architecture, reliable data processing, and seamless integration of healthcare AI components with high precision and performance.",
     imageUrl: "/bipin.jpg",
     github: "https://github.com/bipinbashyal",
     linkedin: "https://www.linkedin.com/in/bipin-bashyal-896239231/",
   },
+
   {
     name: "Janardan Bhetwal",
     credentials: "",
     role: "AI Researcher",
-    organization: "IOE, Pulchowk Campus",
+    organization: "AI Lab Pvt Ltd",
     description:
-      "I am a Computer Engineering student at IOE, Pulchowk Campus, with a strong interest in artificial intelligence and machine learning. I am keen on exploring advanced AI/ML concepts, developing intelligent systems, and contributing to research-driven innovations. My academic focus and curiosity drive me to understand both the theoretical foundations and practical applications of AI, with the goal of creating impactful, data-driven solutions.",
+      "Janardan Bhetwal is a final year Computer Engineering student at IOE, Pulchowk Campus and a healthcare AI researcher at AI Lab. He focuses on machine learning applications for medical data analysis and clinical decision support systems. His research explores advanced AI/ML techniques for healthcare, including predictive modeling, pattern recognition in medical data, and intelligent automation for clinical workflows. He contributes to developing data-driven solutions that improve healthcare delivery and patient outcomes.",
     imageUrl: "/Janardan_Bhetwal.jpeg",
-    github: "",
-    linkedin: "",
+    github: "https://github.com/JanardanBhetwal",
+    linkedin: "https://www.linkedin.com/in/janardan-bhetwal",
+  },
+  {
+    name: "Kshitiz Paudel",
+    credentials: "AWS Solutions Architect Associate",
+    role: "AI Researcher & Business Strategist",
+    organization: "AI Lab Pvt Ltd",
+    description:
+      "Kshitiz Paudel is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher and business strategist at AI Lab. As an AWS-certified Solutions Architect and Cloud Club Captain, he leads technical workshops and training sessions while developing RAG systems, real-time streaming pipelines, and deep learning models. His work bridges technical innovation with business strategy, ensuring AI Lab's solutions are scalable and market-ready. Kshitiz is also passionate about technology education, having reached over 700 students across rural Nepal with programs on Cloud and AI fundamentals.",
+    imageUrl: "/kshitiz_paudel.jpeg",
+    github: "https://github.com/Zitihsk-leduap",
+    linkedin: "https://www.linkedin.com/in/kshitiz-paudel-127b4a280/",
+  },
+  {
+    name: "Apil Chaudhary",
+    credentials: "",
+    role: "AI Researcher",
+    organization: "AI Lab Pvt Ltd",
+    description:
+      "Apil Chaudhary is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher at AI Lab specializing in robotics, computer vision, and reinforcement learning. As a member of the Robotics Club and AWS Cloud Clubs, he brings hands-on experience from representing Nepal at ABU Robocon competitions in Cambodia and Vietnam. His research explores advanced AI techniques and intelligent systems, contributing to innovative solutions that bridge theoretical concepts with practical applications in healthcare technology.",
+    imageUrl: "/apil_chaudhary.png",
+    github: "https://github.com/tyro-apil",
+    linkedin: "https://www.linkedin.com/in/apil-chaudhary/",
   },
 ];
 
