@@ -47,7 +47,7 @@ const medicalTeam = [
       "Dr. Prabhat Adhikari is an accomplished infectious disease and ICU specialist with over 15 years of medical expertise. He is an American Board-certified physician and philanthropist, founder of ASK Foundation Nepal, providing telemedicine services to underserved rural communities. As founder & CEO of Center for American Medical Specialists (CAMS) and Medical/Scientific Advisor at Novala Biotech, Dr. Adhikari combines clinical excellence with healthcare innovation. His extensive experience includes Critical Care Fellowship at UTHSC, Infectious Disease Fellowship at UCLA, and consulting roles across Nepal, Israel, and the USA.",
     imageUrl: "/prabhat_adhikari.jpeg",
     github: "",
-    linkedin: "https://www.linkedin.com/in/prabhat-adhikari/",
+    linkedin: "https://www.linkedin.com/in/prabhat-adhikari-md-infectious-diseases-critical-care-60b97462/",
   },
 ];
 
