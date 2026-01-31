@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaRocket } from "react-icons/fa";
+import { FaRocket, FaStethoscope, FaHeartbeat } from "react-icons/fa";
 
 interface FloatingPromoButtonProps {
   text?: string;
@@ -19,7 +19,16 @@ export default function FloatingPromoButton({
   const positionClasses = position === "right" ? "right-6" : "left-6";
 
   return (
-    <motion.button
+    <>
+      {/* Healthcare background elements */}
+      <div className='fixed bottom-20 right-20 pointer-events-none z-40'>
+        <FaStethoscope className='text-green-200/20 text-6xl animate-pulse' />
+      </div>
+      <div className='fixed bottom-32 right-8 pointer-events-none z-40'>
+        <FaHeartbeat className='text-green-300/20 text-4xl animate-bounce' />
+      </div>
+      
+      <motion.button
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
@@ -45,11 +54,11 @@ export default function FloatingPromoButton({
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className='absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full blur-lg'
+        className='absolute inset-0 bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 rounded-full blur-lg'
       />
 
-      {/* Main button */}
-      <div className='relative flex flex-col items-center gap-1 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full shadow-2xl'>
+      {/* Main healthcare-themed button */}
+      <div className='relative flex flex-col items-center gap-1 px-6 py-4 bg-gradient-to-r from-green-600 via-emerald-600 to-green-700 text-white rounded-full shadow-2xl border border-green-500/20'>
         <div className='flex items-center gap-3'>
           {/* Animated rocket icon */}
           <motion.div
@@ -72,13 +81,13 @@ export default function FloatingPromoButton({
               {text}
             </span>
             <span className='text-xs opacity-90 whitespace-nowrap'>
-              AI EMR Generator
+              🎩 AI EMR Generator
             </span>
           </div>
 
-          {/* NEW badge */}
-          <span className='px-2 py-0.5 bg-white/20 rounded-full text-xs font-bold animate-pulse'>
-            NEW
+          {/* LIVE badge */}
+          <span className='px-2 py-0.5 bg-white/20 rounded-full text-xs font-bold animate-pulse border border-white/30'>
+            🔴 LIVE
           </span>
         </div>
 
@@ -93,19 +102,20 @@ export default function FloatingPromoButton({
             repeatDelay: 2,
             ease: "easeInOut",
           }}
-          className='absolute inset-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12'
+          className='absolute inset-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12'
         />
       </div>
 
-      {/* Tooltip on hover */}
+      {/* Healthcare-themed tooltip on hover */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileHover={{ opacity: 1, y: 0 }}
-        className='absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none'
+        className='absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900/90 backdrop-blur-sm text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-gray-700'
       >
-        Click to try now! 🚀
-        <div className='absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900' />
+        🎤 Try AI Medical Transcription! 🚀
+        <div className='absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900/90' />
       </motion.div>
     </motion.button>
+    </>
   );
 }

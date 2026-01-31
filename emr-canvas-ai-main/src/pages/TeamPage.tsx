@@ -67,7 +67,7 @@ const technicalTeam = [
   {
     name: "Bipin Bashyal",
     credentials: "",
-    role: "Co-Founder & Lead Engineer",
+    role: "Co-Founder & Lead Software Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
       "Bipin Bashyal is a final year Computer Engineering student at IOE, Pulchowk Campus, specializing in backend engineering and healthcare technology. He develops and implements robust backend systems and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures scalable architecture, reliable data processing, and seamless integration of healthcare AI components with high precision and performance.",
@@ -79,7 +79,7 @@ const technicalTeam = [
   {
     name: "Janardan Bhetwal",
     credentials: "",
-    role: "AI Researcher",
+    role: "Lead AI Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
       "Janardan Bhetwal is a final year Computer Engineering student at IOE, Pulchowk Campus and a healthcare AI researcher at AI Lab. He focuses on machine learning applications for medical data analysis and clinical decision support systems. His research explores advanced AI/ML techniques for healthcare, including predictive modeling, pattern recognition in medical data, and intelligent automation for clinical workflows. He contributes to developing data-driven solutions that improve healthcare delivery and patient outcomes.",
@@ -90,7 +90,7 @@ const technicalTeam = [
   {
     name: "Kshitiz Paudel",
     credentials: "AWS Solutions Architect Associate",
-    role: "AI Researcher & Business Strategist",
+    role: "AI Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
       "Kshitiz Paudel is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher and business strategist at AI Lab. As an AWS-certified Solutions Architect and Cloud Club Captain, he leads technical workshops and training sessions while developing RAG systems, real-time streaming pipelines, and deep learning models. His work bridges technical innovation with business strategy, ensuring AI Lab's solutions are scalable and market-ready. Kshitiz is also passionate about technology education, having reached over 700 students across rural Nepal with programs on Cloud and AI fundamentals.",
@@ -101,7 +101,7 @@ const technicalTeam = [
   {
     name: "Apil Chaudhary",
     credentials: "",
-    role: "AI Researcher",
+    role: "AI Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
       "Apil Chaudhary is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher at AI Lab specializing in robotics, computer vision, and reinforcement learning. As a member of the Robotics Club and AWS Cloud Clubs, he brings hands-on experience from representing Nepal at ABU Robocon competitions in Cambodia and Vietnam. His research explores advanced AI techniques and intelligent systems, contributing to innovative solutions that bridge theoretical concepts with practical applications in healthcare technology.",
@@ -122,224 +122,251 @@ export default function TeamPage() {
 
   const renderMember = (m: any, isLarge: boolean = false) => (
     <div
-      className={`bg-white rounded-xl ${
+      className={`group bg-white rounded-2xl ${
         isLarge ? "p-8 md:p-10" : "p-6 md:p-8"
-      } shadow-sm border border-gray-200 h-full flex flex-col`}
+      } shadow-lg hover:shadow-2xl border border-gray-100 hover:border-green-200 h-full flex flex-col transition-all duration-300 relative overflow-hidden`}
     >
-      {/* Circular Image */}
-      <div className='flex justify-center mb-6'>
-        <div
-          className={`relative ${
-            isLarge ? "w-40 h-40 md:w-48 md:h-48" : "w-32 h-32 md:w-36 md:h-36"
-          }`}
-        >
-          <img
-            src={m.imageUrl}
-            alt={m.name}
-            loading='lazy'
-            className='w-full h-full rounded-full object-cover border-4 border-gray-100'
-          />
-        </div>
-      </div>
-
-      {/* Name & Credentials */}
-      <div className='text-center mb-4'>
-        <h3
-          className={`${
-            isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
-          } font-bold text-gray-900 mb-1`}
-        >
-          {m.name}
-        </h3>
-        {m.credentials && (
-          <p
-            className={`${
-              isLarge ? "text-sm md:text-base" : "text-sm"
-            } text-gray-600 font-medium`}
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 to-blue-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Professional Image with Medical Cross Accent */}
+        <div className='flex justify-center mb-6 relative'>
+          <div
+            className={`relative ${
+              isLarge ? "w-40 h-40 md:w-48 md:h-48" : "w-32 h-32 md:w-36 md:h-36"
+            }`}
           >
-            {m.credentials}
-          </p>
-        )}
-      </div>
+            <img
+              src={m.imageUrl}
+              alt={m.name}
+              loading='lazy'
+              className='w-full h-full rounded-full object-cover border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300'
+            />
+            {/* Professional status indicator */}
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+            </div>
+          </div>
+        </div>
 
-      {/* Role & Organization */}
-      <div className='text-center mb-6'>
-        <p
-          className={`${
-            isLarge ? "text-base md:text-lg" : "text-sm md:text-base"
-          } font-semibold text-gray-900`}
-        >
-          {m.role}
-        </p>
-        {m.organization && (
+        {/* Name & Credentials with Medical Typography */}
+        <div className='text-center mb-4'>
+          <h3
+            className={`${
+              isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+            } font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors duration-300`}
+          >
+            {m.name}
+          </h3>
+          {m.credentials && (
+            <div className="inline-flex items-center px-3 py-1 bg-green-50 border border-green-200 rounded-full">
+              <p
+                className={`${
+                  isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
+                } text-green-700 font-semibold`}
+              >
+                {m.credentials}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Role & Organization with Healthcare Styling */}
+        <div className='text-center mb-6'>
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg mb-2">
+            <p
+              className={`${
+                isLarge ? "text-base md:text-lg" : "text-sm md:text-base"
+              } font-bold text-blue-800`}
+            >
+              {m.role}
+            </p>
+          </div>
+          {m.organization && (
+            <p
+              className={`${
+                isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
+              } text-gray-600 font-medium`}
+            >
+              {m.organization}
+            </p>
+          )}
+        </div>
+
+        {/* Description with Medical Professional Styling */}
+        <div className="flex-grow">
           <p
             className={`${
               isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
-            } text-gray-600 mt-1`}
+            } text-gray-700 text-center leading-relaxed mb-6`}
           >
-            {m.organization}
+            {m.description}
           </p>
+        </div>
+
+        {/* Enhanced Social Links */}
+        {(m.github || m.linkedin || m.twitter || m.email || m.scholar) && (
+          <div className='flex justify-center gap-3 pt-6 border-t border-gray-100'>
+            {m.github && (
+              <a
+                href={m.github}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={`${
+                  isLarge ? "w-12 h-12" : "w-10 h-10"
+                } bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-800 hover:to-gray-900 rounded-xl flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110`}
+                aria-label='GitHub'
+              >
+                <FaGithub className={isLarge ? "w-6 h-6" : "w-5 h-5"} />
+              </a>
+            )}
+            {m.linkedin && (
+              <a
+                href={m.linkedin}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={`${
+                  isLarge ? "w-12 h-12" : "w-10 h-10"
+                } bg-gradient-to-br from-blue-100 to-blue-200 hover:from-blue-600 hover:to-blue-700 rounded-xl flex items-center justify-center text-blue-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110`}
+                aria-label='LinkedIn'
+              >
+                <FaLinkedin className={isLarge ? "w-6 h-6" : "w-5 h-5"} />
+              </a>
+            )}
+            {m.twitter && (
+              <a
+                href={m.twitter}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={`${
+                  isLarge ? "w-12 h-12" : "w-10 h-10"
+                } bg-gradient-to-br from-sky-100 to-sky-200 hover:from-sky-500 hover:to-sky-600 rounded-xl flex items-center justify-center text-sky-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110`}
+                aria-label='Twitter'
+              >
+                <FaTwitter className={isLarge ? "w-6 h-6" : "w-5 h-5"} />
+              </a>
+            )}
+            {m.email && (
+              <a
+                href={m.email}
+                className={`${
+                  isLarge ? "w-12 h-12" : "w-10 h-10"
+                } bg-gradient-to-br from-red-100 to-red-200 hover:from-red-600 hover:to-red-700 rounded-xl flex items-center justify-center text-red-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110`}
+                aria-label='Email'
+              >
+                <FaEnvelope className={isLarge ? "w-6 h-6" : "w-5 h-5"} />
+              </a>
+            )}
+            {m.scholar && (
+              <a
+                href={m.scholar}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={`${
+                  isLarge ? "w-12 h-12" : "w-10 h-10"
+                } bg-gradient-to-br from-green-100 to-green-200 hover:from-green-600 hover:to-green-700 rounded-xl flex items-center justify-center text-green-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110`}
+                aria-label='Google Scholar'
+              >
+                <FaGraduationCap className={isLarge ? "w-6 h-6" : "w-5 h-5"} />
+              </a>
+            )}
+          </div>
         )}
       </div>
-
-      {/* Description */}
-      <p
-        className={`${
-          isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
-        } text-gray-600 text-center leading-relaxed mb-6`}
-      >
-        {m.description}
-      </p>
-
-      {/* Social Links */}
-      {(m.github || m.linkedin || m.twitter || m.email || m.scholar) && (
-        <div className='flex justify-center gap-3 pt-4 border-t border-gray-100'>
-          {m.github && (
-            <a
-              href={m.github}
-              target='_blank'
-              rel='noopener noreferrer'
-              className={`${
-                isLarge ? "w-10 h-10" : "w-9 h-9"
-              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors`}
-              aria-label='GitHub'
-            >
-              <FaGithub className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
-            </a>
-          )}
-          {m.linkedin && (
-            <a
-              href={m.linkedin}
-              target='_blank'
-              rel='noopener noreferrer'
-              className={`${
-                isLarge ? "w-10 h-10" : "w-9 h-9"
-              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors`}
-              aria-label='LinkedIn'
-            >
-              <FaLinkedin className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
-            </a>
-          )}
-          {m.twitter && (
-            <a
-              href={m.twitter}
-              target='_blank'
-              rel='noopener noreferrer'
-              className={`${
-                isLarge ? "w-10 h-10" : "w-9 h-9"
-              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-sky-500 hover:text-white transition-colors`}
-              aria-label='Twitter'
-            >
-              <FaTwitter className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
-            </a>
-          )}
-          {m.email && (
-            <a
-              href={m.email}
-              className={`${
-                isLarge ? "w-10 h-10" : "w-9 h-9"
-              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-colors`}
-              aria-label='Email'
-            >
-              <FaEnvelope className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
-            </a>
-          )}
-          {m.scholar && (
-            <a
-              href={m.scholar}
-              target='_blank'
-              rel='noopener noreferrer'
-              className={`${
-                isLarge ? "w-10 h-10" : "w-9 h-9"
-              } bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-600 hover:text-white transition-colors`}
-              aria-label='Google Scholar'
-            >
-              <FaGraduationCap className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
-            </a>
-          )}
-        </div>
-      )}
     </div>
   );
 
   return (
-    <section className='relative min-h-screen bg-gray-50'>
+    <section className='relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50'>
       <Navigation />
 
-      {/* Main Heading */}
-      <div className='text-center pt-32 md:pt-40 pb-12 md:pb-16 px-4'>
-        <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
-          <span className='text-gray-900'>Meet Our </span>
-          <span className='text-green-600'>Team</span>
-        </h1>
-        <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
-          Passionate experts dedicated to transforming healthcare through AI
-          innovation
-        </p>
+      {/* Enhanced Hero Section with Medical Theme */}
+      <div className='relative pt-32 md:pt-40 pb-12 md:pb-16 px-4 overflow-hidden'>
+        {/* Medical-themed background elements */}
+        <div className='absolute inset-0 pointer-events-none'>
+          <div className='absolute top-20 left-10 w-96 h-96 bg-green-100/30 rounded-full blur-3xl animate-pulse'></div>
+          <div className='absolute bottom-20 right-10 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse delay-1000'></div>
+          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-50/40 rounded-full blur-2xl'></div>
+        </div>
+        
+        <div className='relative z-10 text-center'>
+          {/* Medical badge */}
+          <div className='inline-flex items-center px-4 py-2 bg-green-100 border border-green-300 rounded-full mb-6'>
+            <div className='w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse'></div>
+            <span className='text-sm font-semibold text-green-800'>Healthcare AI Professionals</span>
+          </div>
+          
+          <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-6'>
+            <span className='text-gray-900'>Meet Our </span>
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600'>Expert Team</span>
+          </h1>
+          
+          {/* Enhanced divider */}
+          <div className='flex items-center justify-center mb-6'>
+            <div className='w-16 h-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-full'></div>
+            <div className='w-3 h-3 bg-green-600 rounded-full mx-4'></div>
+            <div className='w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full'></div>
+          </div>
+          
+          <p className='text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed'>
+            Passionate healthcare professionals and AI experts dedicated to transforming medical practice through innovative technology solutions
+          </p>
+        </div>
       </div>
 
-      {/* Filter Toggle */}
+      {/* Enhanced Filter Toggle */}
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-12'>
-        <div className='flex flex-wrap justify-center gap-3'>
-          <button
-            onClick={() => setActiveFilter("all")}
-            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-              activeFilter === "all"
-                ? "bg-green-600 text-white shadow-md"
-                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
-            }`}
-          >
-            All Teams
-          </button>
-          <button
-            onClick={() => setActiveFilter("medical")}
-            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-              activeFilter === "medical"
-                ? "bg-green-600 text-white shadow-md"
-                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
-            }`}
-          >
-            Medical Team
-          </button>
-          <button
-            onClick={() => setActiveFilter("technical")}
-            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-              activeFilter === "technical"
-                ? "bg-green-600 text-white shadow-md"
-                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
-            }`}
-          >
-            Technical Team
-          </button>
-          <button
-            onClick={() => setActiveFilter("advisors")}
-            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-              activeFilter === "advisors"
-                ? "bg-green-600 text-white shadow-md"
-                : "bg-white text-gray-700 border border-gray-300 hover:border-green-600 hover:text-green-600"
-            }`}
-          >
-            Advisors
-          </button>
+        <div className='flex flex-wrap justify-center gap-4'>
+          {[
+            { key: "all", label: "All Teams", icon: "👥" },
+            { key: "medical", label: "Medical Team", icon: "🩺" },
+            { key: "technical", label: "Technical Team", icon: "💻" },
+            { key: "advisors", label: "Advisors", icon: "🎓" }
+          ].map(({ key, label, icon }) => (
+            <button
+              key={key}
+              onClick={() => setActiveFilter(key as TeamFilter)}
+              className={`group flex items-center px-6 py-3 rounded-2xl font-semibold transition-all duration-300 shadow-md hover:shadow-lg ${
+                activeFilter === key
+                  ? "bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-400 hover:text-green-600 hover:scale-105"
+              }`}
+            >
+              <span className="mr-2 text-lg group-hover:scale-110 transition-transform duration-300">{icon}</span>
+              {label}
+            </button>
+          ))}
         </div>
       </div>
 
       {/* MEDICAL TEAM SECTION */}
       {(activeFilter === "all" || activeFilter === "medical") && (
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-4'>
+              <span className='text-2xl mr-2'>🩺</span>
+              <span className='text-sm font-semibold text-red-700'>Medical Professionals</span>
+            </div>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Medical Team
             </h2>
-            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-            <p className='text-sm md:text-base text-gray-600'>
-              Clinical expertise guiding our healthcare solutions
+            <div className='flex items-center justify-center mb-4'>
+              <div className='w-12 h-1 bg-gradient-to-r from-red-500 to-pink-500 rounded-full'></div>
+              <div className='w-2 h-2 bg-red-500 rounded-full mx-3'></div>
+              <div className='w-12 h-1 bg-gradient-to-r from-pink-500 to-red-500 rounded-full'></div>
+            </div>
+            <p className='text-base text-gray-600 max-w-2xl mx-auto'>
+              Board-certified physicians and clinical experts providing medical leadership and ensuring our AI solutions meet the highest healthcare standards
             </p>
           </div>
 
-          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
             {medicalTeam.map((m, i) => (
-              <div key={i}>{renderMember(m, false)}</div>
+              <div key={i} className='transform hover:scale-105 transition-transform duration-300'>
+                {renderMember(m, false)}
+              </div>
             ))}
           </div>
         </div>
@@ -348,19 +375,29 @@ export default function TeamPage() {
       {/* TECHNICAL TEAM SECTION */}
       {(activeFilter === "all" || activeFilter === "technical") && (
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-4'>
+              <span className='text-2xl mr-2'>💻</span>
+              <span className='text-sm font-semibold text-blue-700'>Technology Innovators</span>
+            </div>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Technical Team
             </h2>
-            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-            <p className='text-sm md:text-base text-gray-600'>
-              Engineering excellence driving healthcare AI innovation
+            <div className='flex items-center justify-center mb-4'>
+              <div className='w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full'></div>
+              <div className='w-2 h-2 bg-blue-500 rounded-full mx-3'></div>
+              <div className='w-12 h-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full'></div>
+            </div>
+            <p className='text-base text-gray-600 max-w-2xl mx-auto'>
+              Skilled engineers and AI specialists developing cutting-edge healthcare technology solutions with precision and innovation
             </p>
           </div>
 
-          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto'>
             {technicalTeam.map((m, i) => (
-              <div key={i}>{renderMember(m, false)}</div>
+              <div key={i} className='transform hover:scale-105 transition-transform duration-300'>
+                {renderMember(m, false)}
+              </div>
             ))}
           </div>
         </div>
@@ -369,19 +406,29 @@ export default function TeamPage() {
       {/* ADVISORS SECTION */}
       {(activeFilter === "all" || activeFilter === "advisors") && (
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
-              Advisors
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center px-4 py-2 bg-purple-50 border border-purple-200 rounded-full mb-4'>
+              <span className='text-2xl mr-2'>🎓</span>
+              <span className='text-sm font-semibold text-purple-700'>Strategic Advisors</span>
+            </div>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
+              Advisory Board
             </h2>
-            <div className='w-16 h-1 bg-green-600 mx-auto mb-3'></div>
-            <p className='text-sm md:text-base text-gray-600'>
-              World-class technical guidance shaping our AI innovation
+            <div className='flex items-center justify-center mb-4'>
+              <div className='w-12 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full'></div>
+              <div className='w-2 h-2 bg-purple-500 rounded-full mx-3'></div>
+              <div className='w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full'></div>
+            </div>
+            <p className='text-base text-gray-600 max-w-2xl mx-auto'>
+              Distinguished academics and industry leaders providing strategic guidance and technical expertise to advance our healthcare AI mission
             </p>
           </div>
 
-          <div className='max-w-3xl mx-auto'>
+          <div className='max-w-4xl mx-auto'>
             {advisors.map((m, i) => (
-              <div key={i}>{renderMember(m, true)}</div>
+              <div key={i} className='transform hover:scale-102 transition-transform duration-300'>
+                {renderMember(m, true)}
+              </div>
             ))}
           </div>
         </div>

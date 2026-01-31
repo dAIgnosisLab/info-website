@@ -3,6 +3,12 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaStethoscope,
+  FaHeartbeat,
+  FaMicroscope,
+  FaUserMd,
+  FaHospital,
+  FaNotesMedical,
 } from "react-icons/fa";
 import { useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
@@ -93,7 +99,7 @@ export default function ContactSection() {
       icon: <FaMapMarkerAlt />,
       title: "Location",
       subtitle: "Visit our office",
-      value: "Kathmandu, Nepal",
+      value: "Kathmandu, Nepal 🇳🇵",
       color: "green",
     },
   ];
@@ -101,12 +107,20 @@ export default function ContactSection() {
   return (
     <section
       id='contact'
-      className='w-full bg-white py-20 md:py-28 relative overflow-hidden'
+      className='w-full bg-gradient-to-br from-white via-green-50/20 to-blue-50/10 py-20 md:py-28 relative overflow-hidden'
     >
-      {/* Subtle background decoration */}
+      {/* Medical-themed floating icons */}
       <div className='absolute inset-0 pointer-events-none'>
         <div className='absolute top-20 left-10 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-40'></div>
         <div className='absolute bottom-20 right-10 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30'></div>
+        
+        {/* Healthcare logo patterns */}
+        <FaStethoscope className='absolute top-32 right-16 text-green-200 text-4xl animate-pulse opacity-40' />
+        <FaHeartbeat className='absolute bottom-40 left-20 text-green-300 text-3xl animate-bounce opacity-30' />
+        <FaMicroscope className='absolute top-1/2 left-1/3 text-green-200 text-5xl animate-pulse opacity-20' />
+        <FaUserMd className='absolute top-1/4 right-1/4 text-green-150 text-3xl opacity-25 animate-bounce delay-500' />
+        <FaHospital className='absolute bottom-1/3 right-1/5 text-green-100 text-4xl opacity-20 animate-pulse delay-700' />
+        <FaNotesMedical className='absolute top-3/4 left-1/5 text-green-200 text-3xl opacity-25 animate-bounce delay-300' />
       </div>
 
       <div className='max-w-7xl mx-auto px-6 lg:px-8 relative z-10'>
@@ -118,13 +132,12 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4'>
-              Get in <span className='text-green-600'>Touch</span>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4'>
+              <span className='bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'>Get in</span> <span className='bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent'>Touch</span>
             </h2>
             <div className='w-20 h-1 bg-green-600 mx-auto mb-6'></div>
             <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-              Have questions? We'd love to hear from you. Send us a message and
-              we'll respond as soon as possible.
+              Ready to transform your healthcare practice with AI? 🎩 Let's discuss how our solutions can help you deliver better patient care.
             </p>
           </motion.div>
         </div>
@@ -140,15 +153,18 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className='group bg-gray-50 rounded-2xl p-6 md:p-7 border border-gray-100 hover:border-green-200 hover:shadow-md transition-all duration-300'
+                className='group bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-7 border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden'
               >
-                <div className='flex items-center gap-4 mb-3'>
+                {/* Medical gradient overlay */}
+                <div className='absolute inset-0 bg-gradient-to-br from-green-50/50 to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                <div className='flex items-center gap-4 mb-3 relative z-10'>
                   <div className='relative'>
-                    <div className='w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-sm group-hover:scale-110 transition-transform duration-300'>
+                    <div className='w-14 h-14 bg-gradient-to-br from-green-600 to-green-500 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300'>
                       {info.icon}
                     </div>
-                    {/* Decorative dot */}
+                    {/* Medical cross accent */}
                     <div className='absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                    <div className='absolute -top-0.5 -right-0.5 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                   </div>
                   <div>
                     <h3 className='text-lg md:text-xl font-bold text-gray-900'>
@@ -158,14 +174,17 @@ export default function ContactSection() {
                   </div>
                 </div>
                 <p
-                  className={`text-base md:text-lg font-semibold ${
+                  className={`text-base md:text-lg font-semibold relative z-10 ${
                     info.isEmail ? "text-green-600" : "text-gray-900"
                   }`}
                 >
                   {info.value}
                 </p>
-                {/* Bottom accent line */}
-                <div className='mt-4 h-1 w-0 bg-gradient-to-r from-green-500 to-green-600 group-hover:w-full transition-all duration-500'></div>
+                {/* Medical-themed bottom accent */}
+                <div className='mt-4 relative z-10'>
+                  <div className='h-1 w-0 bg-gradient-to-r from-green-500 to-green-600 group-hover:w-full transition-all duration-500'></div>
+                  <div className='absolute right-0 top-0 w-2 h-1 bg-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300'></div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -176,15 +195,17 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className='bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-100 shadow-sm'
+            className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden'
           >
-            <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6'>
-              Send us a Message
+            {/* Medical gradient overlay */}
+            <div className='absolute inset-0 bg-gradient-to-br from-green-50/30 to-blue-50/20 opacity-50'></div>
+            <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative z-10'>
+              💬 Send us a Message
             </h3>
 
             <form
               onSubmit={handleSubmit}
-              className='space-y-6'
+              className='space-y-6 relative z-10'
             >
               <div>
                 <label
@@ -199,8 +220,8 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className='w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all'
-                  placeholder='John Doe'
+                  className='w-full px-4 py-3 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all'
+                  placeholder='Dr. John Doe / Healthcare Professional'
                 />
               </div>
 
@@ -217,8 +238,8 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className='w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all'
-                  placeholder='john@example.com'
+                  className='w-full px-4 py-3 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all'
+                  placeholder='doctor@hospital.com'
                 />
               </div>
 
@@ -235,8 +256,8 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className='w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all resize-none'
-                  placeholder='Your message here...'
+                  className='w-full px-4 py-3 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 focus:border-green-600 focus:ring-2 focus:ring-green-600/20 outline-none transition-all resize-none'
+                  placeholder='Tell us about your healthcare practice and how AI can help improve patient care...'
                 />
               </div>
 
@@ -257,9 +278,9 @@ export default function ContactSection() {
               <button
                 type='submit'
                 disabled={isSubmitting}
-                className='w-full bg-green-600 text-white text-base md:text-lg font-semibold py-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-sm hover:shadow-md transition-all duration-300'
+                className='w-full bg-gradient-to-r from-green-600 to-green-500 text-white text-base md:text-lg font-semibold py-4 rounded-lg hover:from-green-700 hover:to-green-600 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-300'
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Sending Message... 🚀" : "Send Message 💬"}
               </button>
             </form>
           </motion.div>
