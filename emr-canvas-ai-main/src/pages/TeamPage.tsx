@@ -47,7 +47,8 @@ const medicalTeam = [
       "Dr. Prabhat Adhikari is an accomplished infectious disease and ICU specialist with over 15 years of medical expertise. He is an American Board-certified physician and philanthropist, founder of ASK Foundation Nepal, providing telemedicine services to underserved rural communities. As founder & CEO of Center for American Medical Specialists (CAMS) and Medical/Scientific Advisor at Novala Biotech, Dr. Adhikari combines clinical excellence with healthcare innovation. His extensive experience includes Critical Care Fellowship at UTHSC, Infectious Disease Fellowship at UCLA, and consulting roles across Nepal, Israel, and the USA.",
     imageUrl: "/prabhat_adhikari.jpeg",
     github: "",
-    linkedin: "https://www.linkedin.com/in/prabhat-adhikari-md-infectious-diseases-critical-care-60b97462/",
+    linkedin:
+      "https://www.linkedin.com/in/prabhat-adhikari-md-infectious-diseases-critical-care-60b97462/",
   },
 ];
 
@@ -111,7 +112,32 @@ const technicalTeam = [
   },
 ];
 
-type TeamFilter = "all" | "medical" | "technical" | "advisors";
+const interns = [
+  {
+    name: "Nishan Kharel",
+    credentials: "",
+    role: "AI Research Intern",
+    organization: "AI Lab Pvt Ltd",
+    description:
+      "Nishan Kharel is an AI Engineer and AI consultant dedicated to building intelligent, data-driven systems that solve real-world business and societal problems. With experience across machine learning, NLP, and analytics, he has developed and deployed AI solutions spanning recruitment intelligence, document understanding, and large-scale data processing. His work bridges research and practice, combining modern deep learning frameworks with practical system design to deliver scalable, high-impact solutions. Nishan is passionate about continuous learning, knowledge sharing, and exploring innovative AI approaches to create meaningful, real-world impact.",
+    imageUrl: "/nishan_kharel.jpeg",
+    github: "https://github.com/nishankhareln",
+    linkedin: "https://www.linkedin.com/in/nkharel/",
+  },
+  {
+    name: "Avishek Guragain",
+    credentials: "",
+    role: "AI Research Intern",
+    organization: "AI Lab Pvt Ltd",
+    description:
+      "Avishek Guragain is a Research-Based AI Engineer and Data Scientist dedicated to architecting intelligent, data-driven systems that bridge the gap between theoretical research and real-world application. Specialized in Generative AI and R&D, he focuses on developing and deploying advanced models, including Large Language Models (LLMs) and RAG (Retrieval-Augmented Generation) systems, to solve complex business and societal problems. His expertise spans the full AI lifecycle, from engineering robust machine learning pipelines and performing high-level data analysis to implementing research-based architectures derived from technical documentation.",
+    imageUrl: "/abhishek_gurgain.jpeg",
+    github: "",
+    linkedin: "https://www.linkedin.com/in/avishek-guragain-b6a776340/",
+  },
+];
+
+type TeamFilter = "all" | "medical" | "technical" | "advisors" | "interns";
 
 export default function TeamPage() {
   const [activeFilter, setActiveFilter] = useState<TeamFilter>("all");
@@ -127,15 +153,17 @@ export default function TeamPage() {
       } shadow-lg hover:shadow-2xl border border-gray-100 hover:border-green-200 h-full flex flex-col transition-all duration-300 relative overflow-hidden`}
     >
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 to-blue-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      
+      <div className='absolute inset-0 bg-gradient-to-br from-green-50/30 to-blue-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+
       {/* Content */}
-      <div className="relative z-10 flex flex-col h-full">
+      <div className='relative z-10 flex flex-col h-full'>
         {/* Professional Image with Medical Cross Accent */}
         <div className='flex justify-center mb-6 relative'>
           <div
             className={`relative ${
-              isLarge ? "w-40 h-40 md:w-48 md:h-48" : "w-32 h-32 md:w-36 md:h-36"
+              isLarge
+                ? "w-40 h-40 md:w-48 md:h-48"
+                : "w-32 h-32 md:w-36 md:h-36"
             }`}
           >
             <img
@@ -145,8 +173,8 @@ export default function TeamPage() {
               className='w-full h-full rounded-full object-cover border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300'
             />
             {/* Professional status indicator */}
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
+            <div className='absolute -bottom-2 -right-2 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center shadow-lg'>
+              <div className='w-3 h-3 bg-white rounded-full'></div>
             </div>
           </div>
         </div>
@@ -161,7 +189,7 @@ export default function TeamPage() {
             {m.name}
           </h3>
           {m.credentials && (
-            <div className="inline-flex items-center px-3 py-1 bg-green-50 border border-green-200 rounded-full">
+            <div className='inline-flex items-center px-3 py-1 bg-green-50 border border-green-200 rounded-full'>
               <p
                 className={`${
                   isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
@@ -175,7 +203,7 @@ export default function TeamPage() {
 
         {/* Role & Organization with Healthcare Styling */}
         <div className='text-center mb-6'>
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg mb-2">
+          <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg mb-2'>
             <p
               className={`${
                 isLarge ? "text-base md:text-lg" : "text-sm md:text-base"
@@ -196,7 +224,7 @@ export default function TeamPage() {
         </div>
 
         {/* Description with Medical Professional Styling */}
-        <div className="flex-grow">
+        <div className='flex-grow'>
           <p
             className={`${
               isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
@@ -290,28 +318,34 @@ export default function TeamPage() {
           <div className='absolute bottom-20 right-10 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse delay-1000'></div>
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-50/40 rounded-full blur-2xl'></div>
         </div>
-        
+
         <div className='relative z-10 text-center'>
           {/* Medical badge */}
           <div className='inline-flex items-center px-4 py-2 bg-green-100 border border-green-300 rounded-full mb-6'>
             <div className='w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse'></div>
-            <span className='text-sm font-semibold text-green-800'>Healthcare AI Professionals</span>
+            <span className='text-sm font-semibold text-green-800'>
+              Healthcare AI Professionals
+            </span>
           </div>
-          
+
           <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-6'>
             <span className='text-gray-900'>Meet Our </span>
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600'>Expert Team</span>
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600'>
+              Expert Team
+            </span>
           </h1>
-          
+
           {/* Enhanced divider */}
           <div className='flex items-center justify-center mb-6'>
             <div className='w-16 h-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-full'></div>
             <div className='w-3 h-3 bg-green-600 rounded-full mx-4'></div>
             <div className='w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full'></div>
           </div>
-          
+
           <p className='text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed'>
-            Passionate healthcare professionals and AI experts dedicated to transforming medical practice through innovative technology solutions
+            Passionate healthcare professionals and AI experts dedicated to
+            transforming medical practice through innovative technology
+            solutions
           </p>
         </div>
       </div>
@@ -323,7 +357,8 @@ export default function TeamPage() {
             { key: "all", label: "All Teams", icon: "👥" },
             { key: "medical", label: "Medical Team", icon: "🩺" },
             { key: "technical", label: "Technical Team", icon: "💻" },
-            { key: "advisors", label: "Advisors", icon: "🎓" }
+            { key: "advisors", label: "Advisors", icon: "🎓" },
+            { key: "interns", label: "Interns", icon: "🎯" },
           ].map(({ key, label, icon }) => (
             <button
               key={key}
@@ -334,7 +369,9 @@ export default function TeamPage() {
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-400 hover:text-green-600 hover:scale-105"
               }`}
             >
-              <span className="mr-2 text-lg group-hover:scale-110 transition-transform duration-300">{icon}</span>
+              <span className='mr-2 text-lg group-hover:scale-110 transition-transform duration-300'>
+                {icon}
+              </span>
               {label}
             </button>
           ))}
@@ -347,7 +384,9 @@ export default function TeamPage() {
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-4'>
               <span className='text-2xl mr-2'>🩺</span>
-              <span className='text-sm font-semibold text-red-700'>Medical Professionals</span>
+              <span className='text-sm font-semibold text-red-700'>
+                Medical Professionals
+              </span>
             </div>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Medical Team
@@ -358,13 +397,18 @@ export default function TeamPage() {
               <div className='w-12 h-1 bg-gradient-to-r from-pink-500 to-red-500 rounded-full'></div>
             </div>
             <p className='text-base text-gray-600 max-w-2xl mx-auto'>
-              Board-certified physicians and clinical experts providing medical leadership and ensuring our AI solutions meet the highest healthcare standards
+              Board-certified physicians and clinical experts providing medical
+              leadership and ensuring our AI solutions meet the highest
+              healthcare standards
             </p>
           </div>
 
           <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
             {medicalTeam.map((m, i) => (
-              <div key={i} className='transform hover:scale-105 transition-transform duration-300'>
+              <div
+                key={i}
+                className='transform hover:scale-105 transition-transform duration-300'
+              >
                 {renderMember(m, false)}
               </div>
             ))}
@@ -378,7 +422,9 @@ export default function TeamPage() {
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-4'>
               <span className='text-2xl mr-2'>💻</span>
-              <span className='text-sm font-semibold text-blue-700'>Technology Innovators</span>
+              <span className='text-sm font-semibold text-blue-700'>
+                Technology Innovators
+              </span>
             </div>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Technical Team
@@ -389,13 +435,53 @@ export default function TeamPage() {
               <div className='w-12 h-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full'></div>
             </div>
             <p className='text-base text-gray-600 max-w-2xl mx-auto'>
-              Skilled engineers and AI specialists developing cutting-edge healthcare technology solutions with precision and innovation
+              Skilled engineers and AI specialists developing cutting-edge
+              healthcare technology solutions with precision and innovation
             </p>
           </div>
 
           <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto'>
             {technicalTeam.map((m, i) => (
-              <div key={i} className='transform hover:scale-105 transition-transform duration-300'>
+              <div
+                key={i}
+                className='transform hover:scale-105 transition-transform duration-300'
+              >
+                {renderMember(m, false)}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* INTERNS SECTION */}
+      {(activeFilter === "all" || activeFilter === "interns") && (
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center px-4 py-2 bg-orange-50 border border-orange-200 rounded-full mb-4'>
+              <span className='text-2xl mr-2'>🎯</span>
+              <span className='text-sm font-semibold text-orange-700'>
+                Future Innovators
+              </span>
+            </div>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
+              Interns
+            </h2>
+            <div className='flex items-center justify-center mb-4'>
+              <div className='w-12 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full'></div>
+              <div className='w-2 h-2 bg-orange-500 rounded-full mx-3'></div>
+              <div className='w-12 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full'></div>
+            </div>
+            <p className='text-base text-gray-600 max-w-2xl mx-auto'>
+              Talented interns contributing fresh perspectives and innovative solutions to our healthcare AI initiatives
+            </p>
+          </div>
+
+          <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
+            {interns.map((m, i) => (
+              <div
+                key={i}
+                className='transform hover:scale-105 transition-transform duration-300'
+              >
                 {renderMember(m, false)}
               </div>
             ))}
@@ -409,7 +495,9 @@ export default function TeamPage() {
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-purple-50 border border-purple-200 rounded-full mb-4'>
               <span className='text-2xl mr-2'>🎓</span>
-              <span className='text-sm font-semibold text-purple-700'>Strategic Advisors</span>
+              <span className='text-sm font-semibold text-purple-700'>
+                Strategic Advisors
+              </span>
             </div>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
               Advisory Board
@@ -420,13 +508,18 @@ export default function TeamPage() {
               <div className='w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full'></div>
             </div>
             <p className='text-base text-gray-600 max-w-2xl mx-auto'>
-              Distinguished academics and industry leaders providing strategic guidance and technical expertise to advance our healthcare AI mission
+              Distinguished academics and industry leaders providing strategic
+              guidance and technical expertise to advance our healthcare AI
+              mission
             </p>
           </div>
 
           <div className='max-w-4xl mx-auto'>
             {advisors.map((m, i) => (
-              <div key={i} className='transform hover:scale-102 transition-transform duration-300'>
+              <div
+                key={i}
+                className='transform hover:scale-102 transition-transform duration-300'
+              >
                 {renderMember(m, true)}
               </div>
             ))}
