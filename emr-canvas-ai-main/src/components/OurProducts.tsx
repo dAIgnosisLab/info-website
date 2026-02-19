@@ -43,7 +43,7 @@ const products: Product[] = [
   },
   {
     icon: <FaCube />,
-    title: "RadiVision 3D",
+    title: "VoxelVision 3D",
     description:
       "Advanced medical imaging technology that transforms 2D radiographic images into detailed three-dimensional anatomical models. Improve diagnostic precision and enhance treatment planning capabilities.",
     status: "Beta",
@@ -141,20 +141,12 @@ export default function OurProducts() {
             >
               {/* Image Section */}
               <div className='relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50'>
-                {product.image ? (
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
-                  />
-                ) : (
-                  <div className={clsx(
-                    'w-full h-full flex items-center justify-center bg-gradient-to-br',
-                    product.accent
-                  )}>
-                    <div className='text-white text-6xl opacity-30'>{product.icon}</div>
-                  </div>
-                )}
+                <div className={clsx(
+                  'w-full h-full flex items-center justify-center bg-gradient-to-br',
+                  product.accent
+                )}>
+                  <div className='text-white text-6xl opacity-30'>{product.icon}</div>
+                </div>
                 
                 {/* Gradient Overlay */}
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent'></div>

@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import MedicalWave from "@/components/MedicalWave";
 import {
   FaMicrophone,
   FaBrain,
@@ -166,11 +165,6 @@ export default function EmrGeneratorPage() {
         </div>
       </div>
 
-      {/* Medical Wave Separator */}
-      <div className='relative z-10 -mb-1 bg-gradient-to-br from-white via-green-50/20 to-blue-50/10'>
-        <MedicalWave />
-      </div>
-
       {/* Enhanced Features */}
       <div className='py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 via-green-50/30 to-blue-50/20 relative'>
         {/* Healthcare background elements */}
@@ -239,11 +233,6 @@ export default function EmrGeneratorPage() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Medical Wave Separator */}
-      <div className='relative z-10 -mb-1 bg-gradient-to-br from-gray-50 via-green-50/30 to-blue-50/20'>
-        <MedicalWave />
       </div>
 
       {/* Enhanced Benefits */}

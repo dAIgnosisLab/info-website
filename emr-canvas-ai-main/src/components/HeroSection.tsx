@@ -6,7 +6,6 @@ import {
   FaHeartbeat,
   FaUserMd,
 } from "react-icons/fa";
-import MedicalWave from "./MedicalWave";
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -57,7 +56,7 @@ const HeroSection = () => {
             <div className='inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-full shadow-md'>
               <div className='w-3 h-3 bg-green-600 rounded-full mr-3 animate-pulse'></div>
               <span className='text-sm font-bold text-green-800 tracking-wide'>
-                AI in Healthcare
+                Innovating Medical Intelligence
               </span>
             </div>
 
@@ -113,7 +112,8 @@ const HeroSection = () => {
 
             {/* Enhanced Description */}
             <p className='text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto px-4'>
-              Using AI in healthcare to deliver smarter diagnostics and faster patient care.
+              Using AI in healthcare to deliver smarter diagnostics and faster
+              patient care.
             </p>
 
             {/* Professional CTA Buttons */}
@@ -144,7 +144,7 @@ const HeroSection = () => {
 
             {/* Enhanced Stats with Medical Icons */}
             <div className='grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t-2 border-gray-200 max-w-3xl mx-auto'>
-              <motion.div 
+              <motion.div
                 className='text-center group'
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
@@ -159,13 +159,13 @@ const HeroSection = () => {
                   Healthcare Solutions
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className='text-center group'
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 <div className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600 group-hover:scale-110 transition-transform duration-300'>
-                  95%
+                  90%
                 </div>
                 <div className='text-xs sm:text-sm font-semibold text-gray-600 mt-1 sm:mt-2'>
                   Accuracy
@@ -174,7 +174,7 @@ const HeroSection = () => {
                   Medical Transcription
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className='text-center group'
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
@@ -192,11 +192,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Medical Wave Separator */}
-      <div className='relative z-10 -mb-1'>
-        <MedicalWave />
       </div>
     </section>
   );

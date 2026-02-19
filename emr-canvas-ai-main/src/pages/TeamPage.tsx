@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import MedicalWave from "@/components/MedicalWave";
 import { useEffect, useState } from "react";
 
 const advisors = [
@@ -349,11 +348,6 @@ export default function TeamPage() {
             solutions
           </p>
         </div>
-      </div>
-
-      {/* Medical Wave Separator */}
-      <div className='relative z-10 -mb-1'>
-        <MedicalWave />
       </div>
 
       {/* Enhanced Filter Toggle */}

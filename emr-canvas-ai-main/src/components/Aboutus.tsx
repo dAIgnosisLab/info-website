@@ -80,12 +80,15 @@ export default function AboutUsSection() {
                 </span>
               </h2>
 
-              <div className='shrink-0 h-24 w-32 md:h-28 md:w-40 lg:h-32 lg:w-48'>
-                <img
-                  src='/ai_logo_new.png'
-                  alt='AI Lab Pvt Ltd Logo'
-                  className='h-full w-full object-contain drop-shadow-lg'
-                />
+              <div className='relative group'>
+                <div className='absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500'></div>
+                <div className='relative bg-white/80 backdrop-blur-sm rounded-2xl p-3 border-2 border-gray-100 group-hover:border-green-200 shadow-lg group-hover:shadow-xl transition-all duration-300'>
+                  <img
+                    src='/ai_lab_logo.png'
+                    alt='AI Lab Pvt Ltd Logo'
+                    className='h-16 w-28 md:h-20 md:w-36 lg:h-24 lg:w-40 object-contain group-hover:scale-105 transition-transform duration-300'
+                  />
+                </div>
               </div>
             </div>
 
