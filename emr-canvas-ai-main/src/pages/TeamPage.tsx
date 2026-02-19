@@ -7,16 +7,17 @@ import {
 } from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import MedicalWave from "@/components/MedicalWave";
 import { useEffect, useState } from "react";
 
 const advisors = [
   {
     name: "Sunil Aryal",
     credentials: "PhD, FHEA, MIEEE, MACS",
-    role: "AI/ML Technical Advisor",
+    role: "Technology Advisor",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Dr Sunil Aryal is an Associate Professor of Data Science at the Deakin University School of Information Technology. His research interests are in the areas of Artificial Intelligence (AI), Machine Learning (ML) and Data Mining (DM). He is particularly interested in the application of AI/ML/DM models to solve real-world problems in applications such as Defence, National Intelligence, Engineering, Manufacturing, Healthcare and Education. He co-leads the Machine Learning for Decision Support (MLDS) Research Group at Deakin University. He has published over 49 papers in top-tier international venues in AI, ML and DM. He is a named investigator in research grants with over AUD 4 million in funding. His research is supported by US and Australia Defence Agencies, Australian Office of National Intelligence, and multiple international organizations.",
+      "Dr Sunil Aryal is an Associate Professor of Data Science at the Deakin University School of Information Technology. His research interests are in the areas of Machine Learning and Data Mining, with a particular focus on applying advanced analytical techniques to solve real-world problems in Defence, National Intelligence, Engineering, Manufacturing, Healthcare and Education. He co-leads the Machine Learning for Decision Support (MLDS) Research Group at Deakin University and has published over 49 papers in top-tier international venues. He is a named investigator in research grants with over AUD 4 million in funding, supported by US and Australian Defence Agencies and the Australian Office of National Intelligence.",
     imageUrl: "/sunil_aryal.jpg",
     github: "https://github.com/sunilaryal",
     linkedin: "https://www.linkedin.com/in/sunil-aryal/",
@@ -59,7 +60,7 @@ const technicalTeam = [
     role: "Co-Founder & CTO",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Jeevan Neupane is a final year Computer Engineering student at IOE, Pulchowk Campus and co-founder who leads the technical strategy and product development at AI Lab. With expertise in full-stack development, machine learning, and healthcare AI systems, he focuses on building scalable solutions that transform medical practice. His leadership drives innovation in AI-powered healthcare technologies, ensuring robust architecture and seamless user experiences across all product offerings.",
+      "Jeevan Neupane is a final year Computer Engineering student at IOE, Pulchowk Campus and co-founder who leads the technical strategy and product development at AI Lab. With expertise in full-stack development, machine learning, and healthcare technology systems, he focuses on building scalable solutions that transform medical practice. His leadership drives innovation in intelligent healthcare technologies, ensuring robust architecture and seamless user experiences across all product offerings.",
     imageUrl: "/jeevan.jpg",
     github: "https://github.com/jeevan-neupane",
     linkedin: "https://www.linkedin.com/in/jeevan-neupane/",
@@ -71,7 +72,7 @@ const technicalTeam = [
     role: "Co-Founder & Lead Software Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Bipin Bashyal is a final year Computer Engineering student at IOE, Pulchowk Campus, specializing in backend engineering and healthcare technology. He develops and implements robust backend systems and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and report generation. His work ensures scalable architecture, reliable data processing, and seamless integration of healthcare AI components with high precision and performance.",
+      "Bipin Bashyal is a final year Computer Engineering student at IOE, Pulchowk Campus, specializing in backend engineering and healthcare technology. He develops and implements robust backend systems and NLP models for intelligent medical documentation, focusing on building accurate and efficient systems for transcription and automated report generation. His work ensures scalable architecture, reliable data processing, and seamless integration of healthcare technology components with high precision and performance.",
     imageUrl: "/bipin.jpg",
     github: "https://github.com/bipinbashyal",
     linkedin: "https://www.linkedin.com/in/bipin-bashyal-896239231/",
@@ -80,10 +81,10 @@ const technicalTeam = [
   {
     name: "Janardan Bhetwal",
     credentials: "",
-    role: "Lead AI Engineer",
+    role: "Lead Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Janardan Bhetwal is a final year Computer Engineering student at IOE, Pulchowk Campus and a healthcare AI researcher at AI Lab. He focuses on machine learning applications for medical data analysis and clinical decision support systems. His research explores advanced AI/ML techniques for healthcare, including predictive modeling, pattern recognition in medical data, and intelligent automation for clinical workflows. He contributes to developing data-driven solutions that improve healthcare delivery and patient outcomes.",
+      "Janardan Bhetwal is a final year Computer Engineering student at IOE, Pulchowk Campus and a healthcare technology researcher at AI Lab. He focuses on machine learning applications for medical data analysis and clinical decision support systems. His research explores advanced analytical techniques for healthcare, including predictive modeling, pattern recognition in medical data, and intelligent automation for clinical workflows. He contributes to developing data-driven solutions that improve healthcare delivery and patient outcomes.",
     imageUrl: "/Janardan_Bhetwal.jpeg",
     github: "https://github.com/JanardanBhetwal",
     linkedin: "https://www.linkedin.com/in/janardan-bhetwal",
@@ -91,10 +92,10 @@ const technicalTeam = [
   {
     name: "Kshitiz Paudel",
     credentials: "AWS Solutions Architect Associate",
-    role: "AI Engineer",
+    role: "Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Kshitiz Paudel is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher and business strategist at AI Lab. As an AWS-certified Solutions Architect and Cloud Club Captain, he leads technical workshops and training sessions while developing RAG systems, real-time streaming pipelines, and deep learning models. His work bridges technical innovation with business strategy, ensuring AI Lab's solutions are scalable and market-ready. Kshitiz is also passionate about technology education, having reached over 700 students across rural Nepal with programs on Cloud and AI fundamentals.",
+      "Kshitiz Paudel is a final year Computer Engineering student at IOE, Pulchowk Campus and a technology researcher and business strategist at AI Lab. As an AWS-certified Solutions Architect and Cloud Club Captain, he leads technical workshops and training sessions while developing RAG systems, real-time streaming pipelines, and deep learning models. His work bridges technical innovation with business strategy, ensuring AI Lab's solutions are scalable and market-ready. Kshitiz is also passionate about technology education, having reached over 700 students across rural Nepal with programs on Cloud and emerging technology fundamentals.",
     imageUrl: "/kshitiz_paudel.jpeg",
     github: "https://github.com/Zitihsk-leduap",
     linkedin: "https://www.linkedin.com/in/kshitiz-paudel-127b4a280/",
@@ -102,10 +103,10 @@ const technicalTeam = [
   {
     name: "Apil Chaudhary",
     credentials: "",
-    role: "AI Engineer",
+    role: "Engineer",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Apil Chaudhary is a final year Computer Engineering student at IOE, Pulchowk Campus and an AI researcher at AI Lab specializing in robotics, computer vision, and reinforcement learning. As a member of the Robotics Club and AWS Cloud Clubs, he brings hands-on experience from representing Nepal at ABU Robocon competitions in Cambodia and Vietnam. His research explores advanced AI techniques and intelligent systems, contributing to innovative solutions that bridge theoretical concepts with practical applications in healthcare technology.",
+      "Apil Chaudhary is a final year Computer Engineering student at IOE, Pulchowk Campus and a technology researcher at AI Lab specializing in robotics, computer vision, and intelligent systems. As a member of the Robotics Club and AWS Cloud Clubs, he brings hands-on experience from representing Nepal at ABU Robocon competitions in Cambodia and Vietnam. His research explores advanced computational techniques and intelligent systems, contributing to innovative solutions that bridge theoretical concepts with practical applications in healthcare technology.",
     imageUrl: "/apil_chaudhary.png",
     github: "https://github.com/tyro-apil",
     linkedin: "https://www.linkedin.com/in/apil-chaudhary/",
@@ -116,10 +117,10 @@ const interns = [
   {
     name: "Nishan Kharel",
     credentials: "",
-    role: "AI Research Intern",
+    role: "Research Intern",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Nishan Kharel is an AI Engineer and AI consultant dedicated to building intelligent, data-driven systems that solve real-world business and societal problems. With experience across machine learning, NLP, and analytics, he has developed and deployed AI solutions spanning recruitment intelligence, document understanding, and large-scale data processing. His work bridges research and practice, combining modern deep learning frameworks with practical system design to deliver scalable, high-impact solutions. Nishan is passionate about continuous learning, knowledge sharing, and exploring innovative AI approaches to create meaningful, real-world impact.",
+      "Nishan Kharel is a technology consultant dedicated to building intelligent, data-driven systems that solve real-world business and societal problems. With experience across machine learning, NLP, and analytics, he has developed and deployed software solutions spanning recruitment intelligence, document understanding, and large-scale data processing. His work bridges research and practice, combining modern frameworks with practical system design to deliver scalable, high-impact solutions. Nishan is passionate about continuous learning, knowledge sharing, and exploring innovative approaches to create meaningful, real-world impact.",
     imageUrl: "/nishan_kharel.jpeg",
     github: "https://github.com/nishankhareln",
     linkedin: "https://www.linkedin.com/in/nkharel/",
@@ -127,10 +128,10 @@ const interns = [
   {
     name: "Avishek Guragain",
     credentials: "",
-    role: "AI Research Intern",
+    role: "Research Intern",
     organization: "AI Lab Pvt Ltd",
     description:
-      "Avishek Guragain is a Research-Based AI Engineer and Data Scientist dedicated to architecting intelligent, data-driven systems that bridge the gap between theoretical research and real-world application. Specialized in Generative AI and R&D, he focuses on developing and deploying advanced models, including Large Language Models (LLMs) and RAG (Retrieval-Augmented Generation) systems, to solve complex business and societal problems. His expertise spans the full AI lifecycle, from engineering robust machine learning pipelines and performing high-level data analysis to implementing research-based architectures derived from technical documentation.",
+      "Avishek Guragain is a Research-Based Engineer and Data Scientist dedicated to architecting intelligent, data-driven systems that bridge the gap between theoretical research and real-world application. Specialized in advanced software development and R&D, he focuses on developing and deploying sophisticated models, including Large Language Models (LLMs) and RAG (Retrieval-Augmented Generation) systems, to solve complex business and societal problems. His expertise spans the full development lifecycle, from engineering robust machine learning pipelines and performing high-level data analysis to implementing research-based architectures derived from technical documentation.",
     imageUrl: "/abhishek_gurgain.jpeg",
     github: "",
     linkedin: "https://www.linkedin.com/in/avishek-guragain-b6a776340/",
@@ -324,7 +325,7 @@ export default function TeamPage() {
           <div className='inline-flex items-center px-4 py-2 bg-green-100 border border-green-300 rounded-full mb-6'>
             <div className='w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse'></div>
             <span className='text-sm font-semibold text-green-800'>
-              Healthcare AI Professionals
+              Healthcare Technology Professionals
             </span>
           </div>
 
@@ -343,23 +344,28 @@ export default function TeamPage() {
           </div>
 
           <p className='text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed'>
-            Passionate healthcare professionals and AI experts dedicated to
-            transforming medical practice through innovative technology
+            Passionate healthcare professionals and technology experts dedicated
+            to transforming medical practice through innovative software
             solutions
           </p>
         </div>
+      </div>
+
+      {/* Medical Wave Separator */}
+      <div className='relative z-10 -mb-1'>
+        <MedicalWave />
       </div>
 
       {/* Enhanced Filter Toggle */}
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-12'>
         <div className='flex flex-wrap justify-center gap-4'>
           {[
-            { key: "all", label: "All Teams", icon: "👥" },
-            { key: "medical", label: "Medical Team", icon: "🩺" },
-            { key: "technical", label: "Technical Team", icon: "💻" },
-            { key: "advisors", label: "Advisors", icon: "🎓" },
-            { key: "interns", label: "Interns", icon: "🎯" },
-          ].map(({ key, label, icon }) => (
+            { key: "all", label: "All Teams", icon: "" },
+            { key: "medical", label: "Medical Team", icon: "" },
+            { key: "technical", label: "Technical Team", icon: "" },
+            { key: "advisors", label: "Advisors", icon: "" },
+            { key: "interns", label: "Interns", icon: "" },
+          ].map(({ key, label }) => (
             <button
               key={key}
               onClick={() => setActiveFilter(key as TeamFilter)}
@@ -369,9 +375,6 @@ export default function TeamPage() {
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-400 hover:text-green-600 hover:scale-105"
               }`}
             >
-              <span className='mr-2 text-lg group-hover:scale-110 transition-transform duration-300'>
-                {icon}
-              </span>
               {label}
             </button>
           ))}
@@ -383,7 +386,6 @@ export default function TeamPage() {
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-4'>
-              <span className='text-2xl mr-2'>🩺</span>
               <span className='text-sm font-semibold text-red-700'>
                 Medical Professionals
               </span>
@@ -421,7 +423,6 @@ export default function TeamPage() {
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-4'>
-              <span className='text-2xl mr-2'>💻</span>
               <span className='text-sm font-semibold text-blue-700'>
                 Technology Innovators
               </span>
@@ -458,7 +459,6 @@ export default function TeamPage() {
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-orange-50 border border-orange-200 rounded-full mb-4'>
-              <span className='text-2xl mr-2'>🎯</span>
               <span className='text-sm font-semibold text-orange-700'>
                 Future Innovators
               </span>
@@ -472,7 +472,8 @@ export default function TeamPage() {
               <div className='w-12 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full'></div>
             </div>
             <p className='text-base text-gray-600 max-w-2xl mx-auto'>
-              Talented interns contributing fresh perspectives and innovative solutions to our healthcare AI initiatives
+              Talented interns contributing fresh perspectives and innovative
+              solutions to our healthcare AI initiatives
             </p>
           </div>
 
@@ -494,7 +495,6 @@ export default function TeamPage() {
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-20'>
           <div className='text-center mb-16'>
             <div className='inline-flex items-center px-4 py-2 bg-purple-50 border border-purple-200 rounded-full mb-4'>
-              <span className='text-2xl mr-2'>🎓</span>
               <span className='text-sm font-semibold text-purple-700'>
                 Strategic Advisors
               </span>

@@ -34,11 +34,11 @@ const Navigation = () => {
   }, [lastScrollY]);
 
   const links = [
-    { href: "/#services", label: "Services", icon: "🏥" },
-    { href: "/#products", label: "Our Products", icon: "💊" },
-    { href: "/#about", label: "About us", icon: "🩺" },
-    { href: "/Team", label: "Team", icon: "👨‍⚕️" },
-    { href: "/#contact", label: "Contact us", icon: "📞" },
+    { href: "/#services", label: "Services" },
+    { href: "/#products", label: "Our Products" },
+    { href: "/#about", label: "About us" },
+    { href: "/Team", label: "Team" },
+    { href: "/#contact", label: "Contact us" },
   ];
 
   return (
@@ -53,42 +53,16 @@ const Navigation = () => {
       >
         <div className='max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-3'>
           <div className='flex items-center justify-center gap-3'>
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 10, -10, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-              className='text-2xl'
-            >
-              <FaStethoscope className='text-white' />
-            </motion.div>
             <div className='text-white font-semibold text-xs sm:text-sm md:text-base text-center'>
-              <span className='hidden sm:inline'>🚀 Introducing </span>
-              <span className='font-bold bg-white/20 px-2 py-1 rounded-md'>Laisten</span> - AI EMR Generator
+              <span className='hidden sm:inline'>Introducing </span>
+              <span className='font-bold bg-white/20 px-2 py-1 rounded-md'>
+                Laisten
+              </span>{" "}
+              - Smart EMR Platform
               <span className='ml-1 sm:ml-2 text-xs sm:text-sm opacity-90 bg-white/10 px-1 sm:px-2 py-1 rounded-full'>
                 Click to try now →
               </span>
             </div>
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, -10, 10, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-                delay: 0.5,
-              }}
-              className='text-2xl'
-            >
-              <FaHeartbeat className='text-white' />
-            </motion.div>
           </div>
         </div>
       </motion.div>
@@ -115,9 +89,9 @@ const Navigation = () => {
               <div className='relative'>
                 <div className='absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500'></div>
                 <img
-                  src='/logo.png'
+                  src='/ai_lab_logo.png'
                   alt='AI Lab - Healthcare AI Solutions'
-                  className='h-12 w-28 sm:h-16 sm:w-36 md:h-20 md:w-48 lg:h-24 lg:w-56 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg relative z-10'
+                  className='h-10 w-24 sm:h-12 sm:w-28 md:h-14 md:w-32 lg:h-16 lg:w-36 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg relative z-10'
                 />
                 {/* Medical cross accent */}
                 <div className='absolute -top-1 -right-1 w-3 h-3 text-green-500 opacity-0 group-hover:opacity-100 transition-all duration-300'>
@@ -132,10 +106,9 @@ const Navigation = () => {
                 <motion.a
                   key={l.href}
                   href={l.href}
-                  className='text-gray-700 text-xs font-semibold px-2 py-2 rounded-lg hover:text-green-600 hover:bg-green-50 flex items-center gap-1 transition-all duration-300'
+                  className='text-gray-700 text-xs font-semibold px-2 py-2 rounded-lg hover:text-green-600 hover:bg-green-50 transition-all duration-300'
                 >
-                  <span className='text-sm'>{l.icon}</span>
-                  <span className='hidden lg:inline'>{l.label}</span>
+                  {l.label}
                 </motion.a>
               ))}
             </div>
@@ -149,12 +122,11 @@ const Navigation = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className='relative text-gray-700 text-sm xl:text-base font-semibold px-4 py-3 rounded-xl group transition-all duration-300 hover:text-green-600 hover:bg-green-50 flex items-center gap-2'
+                  className='relative text-gray-700 text-sm xl:text-base font-semibold px-4 py-3 rounded-xl group transition-all duration-300 hover:text-green-600 hover:bg-green-50'
                 >
-                  <span className='text-lg group-hover:scale-110 transition-transform duration-300'>{l.icon}</span>
                   {l.label}
                   <span className='absolute bottom-2 left-4 right-4 h-0.5 bg-gradient-to-r from-green-600 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full'></span>
-                  
+
                   {/* Hover glow effect */}
                   <div className='absolute inset-0 bg-gradient-to-r from-green-100/0 to-blue-100/0 group-hover:from-green-100/50 group-hover:to-blue-100/50 rounded-xl transition-all duration-300 -z-10'></div>
                 </motion.a>
@@ -222,16 +194,19 @@ const Navigation = () => {
                       href={l.href}
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.08, type: "spring", damping: 20 }}
+                      transition={{
+                        delay: i * 0.08,
+                        type: "spring",
+                        damping: 20,
+                      }}
                       onClick={() => setOpen(false)}
                       className='flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-700 rounded-xl sm:rounded-2xl hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 hover:text-green-600 transition-all duration-300 border border-transparent hover:border-green-200 hover:shadow-md'
                     >
-                      <span className='text-xl sm:text-2xl'>{l.icon}</span>
                       <span>{l.label}</span>
                       <div className='ml-auto w-2 h-2 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                     </motion.a>
                   ))}
-                  
+
                   {/* Mobile CTA */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -239,7 +214,9 @@ const Navigation = () => {
                     transition={{ delay: 0.5 }}
                     className='pt-4 border-t border-gray-200'
                   >
-                    <div className='text-center text-sm text-gray-600 mb-3'>Healthcare AI Solutions</div>
+                    <div className='text-center text-sm text-gray-600 mb-3'>
+                      Healthcare AI Solutions
+                    </div>
                     <div className='flex justify-center gap-2'>
                       <div className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></div>
                       <div className='w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-200'></div>

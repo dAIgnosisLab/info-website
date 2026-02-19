@@ -1,4 +1,15 @@
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaStethoscope, FaHeartbeat, FaMicroscope, FaUserMd, FaHospital, FaNotesMedical } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaStethoscope,
+  FaHeartbeat,
+  FaMicroscope,
+  FaUserMd,
+  FaHospital,
+  FaNotesMedical,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -24,7 +35,7 @@ export default function Footer() {
       {/* Medical-themed floating icons */}
       <div className='absolute inset-0 pointer-events-none'>
         <div className='absolute top-20 right-10 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-30'></div>
-        
+
         {/* Healthcare logo patterns */}
         <FaStethoscope className='absolute top-16 left-16 text-green-200 text-3xl animate-pulse opacity-30' />
         <FaHeartbeat className='absolute bottom-20 right-20 text-green-300 text-2xl animate-bounce opacity-40' />
@@ -45,16 +56,16 @@ export default function Footer() {
           >
             <div className='mb-6'>
               <img
-                src='/logo.png'
-                alt='DAIgnosisLab Logo'
-                className='h-20 w-44 md:h-24 md:w-56 object-contain drop-shadow-md'
+                src='/ai_lab_logo.png'
+                alt='AI Lab Pvt Ltd Logo'
+                className='h-16 w-36 md:h-20 md:w-44 object-contain drop-shadow-md'
               />
             </div>
 
             <p className='text-gray-600 text-sm md:text-base leading-relaxed mb-6'>
-              AI-powered healthcare innovation focused on empowering clinicians,
-              streamlining workflows, reducing errors, and improving global
-              patient outcomes.
+              Healthcare technology innovation focused on empowering clinicians,
+              optimizing workflows, enhancing accuracy, and improving global
+              patient outcomes through advanced software solutions.
             </p>
 
             {/* Social Icons */}
@@ -154,7 +165,7 @@ export default function Footer() {
         >
           <p className='text-gray-600 text-sm md:text-base'>
             © {new Date().getFullYear()}{" "}
-            <span className='font-semibold text-gray-900'>dAIgnosisLab</span>.
+            <span className='font-semibold text-gray-900'>AI Lab Pvt Ltd</span>.
             All rights reserved.
           </p>
         </motion.div>
